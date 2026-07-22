@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Neon Quarters Blog</title>
+<meta name="description" content="News and notes from Neon Quarters.">
+<meta property="og:type" content="article">
+<meta property="og:title" id="ogTitle" content="Neon Quarters Blog">
+<meta property="og:description" id="ogDescription" content="News and notes from Neon Quarters.">
+<meta property="og:image" content="games/thumbs/js-racer.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" id="twitterTitle" content="Neon Quarters Blog">
+<meta name="twitter:description" id="twitterDescription" content="News and notes from Neon Quarters.">
+<meta name="twitter:image" content="games/thumbs/js-racer.jpg">
+<script src="js/theme-init.js"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo"><a href="index.html"><span class="coin"></span> NEON QUARTERS</a></div>
+  <button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀</button>
+</header>
+
+<main style="max-width:680px;">
+  <a href="blog.html" class="back-link" style="display:inline-block; margin-bottom:1.25rem;">&larr; BLOG</a>
+  <div id="postBody">
+    <p style="color:var(--text-dim); font-size:0.85rem;">Loading…</p>
+  </div>
+</main>
+
+<footer>
+  <p><a href="blog.html">&larr; Back to blog</a> · <a href="index.html">Arcade</a></p>
+</footer>
+
+<script src="js/theme.js"></script>
+<script>
+const POSTS = {
+  'welcome-to-neon-quarters': {
+    title: 'Welcome to Neon Quarters',
+    date: 'JUL 21, 2026',
+    excerpt: 'Why we built another arcade site, what\'s in the vault at launch, and what\'s coming next.',
+    html: `
+      <p>Neon Quarters is a small, hand picked arcade of browser games you can play the moment
+      the page loads. No installs, no plugins, no account. Some of it is old Flash era stuff
+      brought back to life with <a href="https://ruffle.rs" target="_blank" rel="noopener">Ruffle</a>,
+      and some of it is modern HTML5 built by developers who open sourced their work.</p>
+      <p>The launch lineup is nine games across puzzle, arcade, shooter, racing, sports, and
+      adventure: 2048, Canvas Tetris, 0h h1, JS Racer, Astray, Asteroids, Star Battle,
+      Classic Pool, and Bullet Hell. Every one of them ships under a genuinely open license
+      (MIT, CC0, or the Unlicense), with the original creator credited right on the play page.
+      See <a href="licenses.html">Licenses &amp; Credits</a> for the full paper trail.</p>
+      <p>This is meant to stay small and honest rather than grow fast. New games get added
+      when we find ones worth adding, not on a schedule. If you've made or know of an openly
+      licensed browser game that deserves a spot, the <a href="submit.html">submission form</a>
+      is open.</p>
+    `
+  },
+  'the-vault-just-grew': {
+    title: 'The vault just grew: 12 new games',
+    date: 'JUL 22, 2026',
+    excerpt: 'From nine games to twenty one, with the same license and rights checks on every single one.',
+    html: `
+      <p>We said in the launch post that new games get added when we find ones worth adding,
+      not on a schedule. This week we found twelve: Emoji Minesweeper, Fruit Matcher, Connect
+      Four, Checkers, Hangman, Word Find, Reaction Time Tester, Lights Out, 15 Puzzle, Snake,
+      Lunar Lander, and Typing Speed Test. That brings the vault to 21 games across nine
+      genres, still all MIT, CC0, or Unlicense, still all credited on their own play page.</p>
+      <p>A couple of these needed small changes before they were fit to publish, worth being
+      upfront about. Checkers originally used a meme image of disputed authorship for its king
+      piece; we swapped it for a plain crown. One minesweeper variant defaulted to loading
+      emoji artwork from a third party CDN; we switched it to native emoji so the game does not
+      depend on an external service at all.</p>
+      <p>Two other games we looked at did not make the cut, and we would rather explain why than
+      quietly skip them. One was a memory matching game whose code was open source but whose
+      card images turned out to be lifted Super Mario sprites, someone else's IP, not covered by
+      that license. We swapped in a fruit themed memory game instead. Another was a rhythm game
+      built around a real, commercially released anime song with no license covering our use of
+      it, so it never got downloaded in the first place. See
+      <a href="blog-post.html?slug=how-we-license-games">how we license every game</a> for the full process behind
+      calls like these.</p>
+    `
+  },
+  'how-we-license-games': {
+    title: 'How we license every game',
+    date: 'MAR 20, 2026',
+    excerpt: 'Our CC0/MIT vetting process, and why "the code is open source" isn\'t always the whole story.',
+    html: `
+      <p>Every game on this site is used under a permissive open license: MIT, CC0, or the
+      Unlicense. That's a promise worth being precise about, so here's the actual process
+      instead of a vague assurance.</p>
+      <p>For each game, we check the license directly against the project's own repository
+      metadata rather than trusting a listing site's tag. Where a repo is a mirror or fork of
+      someone else's original work, we dig into the README to find and credit the actual
+      original creator. 0h h1's code lives in a few different repos, for example, but the
+      game itself was designed by the Dutch studio Q42, and that's who gets the credit line.</p>
+      <p>License and trademark are two different questions, and we check both. A game's source
+      code can be openly licensed while its name or characters still belong to someone else,
+      so alongside the license check, we also look for that kind of trademark risk and skip or
+      rework anything that raises one, even if the code itself would technically be fine to use.</p>
+      <p>The result is on every game's play page: genre, exact license, original creator, and a
+      link back to the source. If you're submitting a game, that's exactly what we'll ask you
+      to provide. See the <a href="submit.html">submission form</a>.</p>
+    `
+  }
+};
+
+function getParam(name) {
+  return new URLSearchParams(window.location.search).get(name);
+}
+
+const post = POSTS[getParam('slug')];
+const body = document.getElementById('postBody');
+if (post) {
+  document.title = `Neon Quarters Blog: ${post.title}`;
+  document.getElementById('pageTitle').textContent = document.title;
+  document.getElementById('ogTitle').content = document.title;
+  document.getElementById('ogDescription').content = post.excerpt;
+  document.getElementById('twitterTitle').content = document.title;
+  document.getElementById('twitterDescription').content = post.excerpt;
+  body.innerHTML = `
+    <span class="post-date">${post.date}</span>
+    <h1 style="font-size:1.15rem; margin:0.5rem 0 1.25rem;">${post.title}</h1>
+    <div style="color:var(--text-dim); font-size:0.85rem; line-height:1.8; display:flex; flex-direction:column; gap:1rem;">
+      ${post.html}
+    </div>
+  `;
+} else {
+  body.innerHTML = `
+    <h1 style="font-size:1.1rem;">Post not found</h1>
+    <p style="color:var(--text-dim); font-size:0.85rem;">That post doesn't exist. Head back to the <a href="blog.html">blog</a>.</p>
+  `;
+}
+</script>
+<script src="js/cookie-consent.js"></script>
+</body>
+</html>

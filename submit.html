@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit a Game: Neon Quarters</title>
+<meta name="description" content="Submit an openly licensed browser game to Neon Quarters.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Submit a Game: Neon Quarters">
+<meta property="og:description" content="Submit an openly licensed browser game to Neon Quarters.">
+<meta property="og:image" content="games/thumbs/js-racer.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Submit a Game: Neon Quarters">
+<meta name="twitter:description" content="Submit an openly licensed browser game to Neon Quarters.">
+<meta name="twitter:image" content="games/thumbs/js-racer.jpg">
+<script src="js/theme-init.js"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo"><a href="index.html" style="color:inherit"><span class="coin"></span> NEON QUARTERS</a></div>
+  <button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀</button>
+</header>
+
+<main style="max-width:640px;">
+  <p class="section-label">SUBMIT A GAME</p>
+  <h1 style="font-size:1.1rem; margin:0 0 0.5rem;">Got a game we should add?</h1>
+  <p class="tagline" style="margin-bottom:1.75rem;">
+    We only publish games under CC0, MIT, or another open license, with the creator credited.
+    Fill this out and it will open a pre filled email. Games are added by hand after a quick license check.
+  </p>
+
+  <form id="submitForm" class="submit-form" action="mailto:tharbykc892@gmail.com" method="get" enctype="text/plain">
+    <label class="form-field">
+      <span>Game title *</span>
+      <input type="text" name="title" required>
+    </label>
+
+    <div class="form-row">
+      <label class="form-field">
+        <span>Type *</span>
+        <select name="type" required>
+          <option value="html5">HTML5</option>
+          <option value="swf">SWF (Flash)</option>
+        </select>
+      </label>
+      <label class="form-field">
+        <span>Genre *</span>
+        <input type="text" name="genre" placeholder="Arcade, Puzzle, …" required>
+      </label>
+    </div>
+
+    <label class="form-field">
+      <span>Link to game or file *</span>
+      <input type="url" name="link" placeholder="https://itch.io/…" required>
+    </label>
+
+    <div class="form-row">
+      <label class="form-field">
+        <span>License *</span>
+        <input type="text" name="license" placeholder="CC0, MIT, …" required>
+      </label>
+      <label class="form-field">
+        <span>Original creator credit *</span>
+        <input type="text" name="credit" required>
+      </label>
+    </div>
+
+    <label class="form-field">
+      <span>Source / proof of license *</span>
+      <input type="url" name="source" placeholder="Link showing the license" required>
+    </label>
+
+    <label class="form-field">
+      <span>Your email</span>
+      <input type="email" name="contact" placeholder="you@email.com">
+    </label>
+
+    <label class="form-field">
+      <span>Notes</span>
+      <textarea name="notes" rows="3" placeholder="Anything else we should know"></textarea>
+    </label>
+
+    <button type="submit" class="btn">SEND SUBMISSION</button>
+  </form>
+</main>
+
+<footer>
+  <p><a href="index.html">&larr; Back to arcade</a> · <a href="licenses.html">Game Licenses &amp; Credits</a></p>
+</footer>
+
+<script src="js/theme.js"></script>
+<script src="js/cookie-consent.js"></script>
+</body>
+</html>

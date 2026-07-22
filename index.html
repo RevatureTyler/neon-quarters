@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Quarters: Free Browser Games, No Download</title>
+<meta name="description" content="Play free, legally licensed browser games instantly. Flash era classics revived with Ruffle, plus modern HTML5 arcade games. No download and no sign up required.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Neon Quarters: Free Browser Games, No Download">
+<meta property="og:description" content="Play free, legally licensed browser games instantly. Flash era classics revived with Ruffle, plus modern HTML5 arcade games. No download and no sign up required.">
+<meta property="og:image" content="games/thumbs/js-racer.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Neon Quarters: Free Browser Games, No Download">
+<meta name="twitter:description" content="Play free, legally licensed browser games instantly. No download and no sign up required.">
+<meta name="twitter:image" content="games/thumbs/js-racer.jpg">
+<script src="js/theme-init.js"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- AdSense loads itself via js/ads.js once ADSENSE_CLIENT is set there. -->
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo"><span class="coin"></span> NEON QUARTERS</a>
+  <div style="display:flex; align-items:center; gap:0.9rem;">
+    <div class="insert-coin">PRESS START<span class="blink">_</span></div>
+    <button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀</button>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>DROP A <span class="hl">QUARTER</span>.<br>PLAY <span class="hl">INSTANTLY</span>.</h1>
+        <p class="tagline">Free browser games. No installs, no plugins. Old school Flash classics revived alongside modern picks, all playable instantly and all legally licensed.</p>
+      </div>
+      <div class="featured-game" id="featuredGame">
+        <p class="fg-label">FEATURED</p>
+        <div class="skeleton-card" style="border:6px solid var(--border); border-radius:8px;">
+          <div class="thumb" style="aspect-ratio:4/3;"></div>
+          <div class="info"><div class="skeleton skeleton-line"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot" data-ad-slot="1111111111">Ad slot: leaderboard (728x90)</div>
+
+  <div class="genre-row" id="genreRow"></div>
+
+  <div class="leaderboard" id="favoritesSection" hidden>
+    <p class="section-label">YOUR FAVORITES</p>
+    <div class="game-grid" id="favoritesGrid"></div>
+  </div>
+
+  <div class="leaderboard" id="leaderboard" hidden>
+    <p class="section-label">YOUR MOST PLAYED <a href="leaderboards.html" style="float:right; font-family:'JetBrains Mono', monospace; text-transform:none; letter-spacing:normal; font-size:0.7rem;">See all stats &rarr;</a></p>
+    <ol class="leaderboard-list" id="leaderboardList"></ol>
+  </div>
+
+  <p class="section-label">BROWSE BY GENRE</p>
+  <div class="grid-controls">
+    <div class="filter-bar" id="filterBar">
+    <button class="active" data-genre="all">All</button>
+    <span class="skeleton skeleton-pill"></span>
+    <span class="skeleton skeleton-pill"></span>
+  </div>
+    <input type="search" id="gameSearch" class="search-input" placeholder="Search games…">
+    <select id="gameSort" class="sort-select">
+      <option value="newest">Newest first</option>
+      <option value="title">Title A–Z</option>
+    </select>
+  </div>
+
+  <div class="game-grid" id="gameGrid">
+    <div class="skeleton-card"><div class="thumb skeleton" style="aspect-ratio:4/3;"></div><div class="info"><div class="skeleton skeleton-line"></div><div class="skeleton-badges"><span class="skeleton skeleton-pill"></span><span class="skeleton skeleton-pill"></span></div></div></div>
+    <div class="skeleton-card"><div class="thumb skeleton" style="aspect-ratio:4/3;"></div><div class="info"><div class="skeleton skeleton-line"></div><div class="skeleton-badges"><span class="skeleton skeleton-pill"></span><span class="skeleton skeleton-pill"></span></div></div></div>
+    <div class="skeleton-card"><div class="thumb skeleton" style="aspect-ratio:4/3;"></div><div class="info"><div class="skeleton skeleton-line"></div><div class="skeleton-badges"><span class="skeleton skeleton-pill"></span><span class="skeleton skeleton-pill"></span></div></div></div>
+  </div>
+
+  <div class="ad-slot" data-ad-slot="2222222222">Ad slot: in feed</div>
+
+  <div class="modal-overlay" id="previewOverlay" hidden>
+    <div class="modal-card" id="previewCard" role="dialog" aria-modal="true">
+      <button type="button" class="modal-close" id="previewClose" aria-label="Close preview">&times;</button>
+      <div id="previewBody"></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <!-- Newsletter signup: disabled for launch (was a UI only mock with no real
+       email capture behind it). The markup is kept here, commented out, so it
+       can be reconnected to a real email service later without rebuilding it.
+  <div class="newsletter">
+    <p class="section-label" style="margin-bottom:0.4rem;">GET NOTIFIED OF NEW GAMES</p>
+    <p style="color:var(--text-dim); font-size:0.75rem; margin:0 0 0.9rem;">One email whenever a new game hits the vault. No spam.</p>
+    <form id="newsletterForm" class="newsletter-form">
+      <input type="email" name="email" placeholder="you@email.com" required class="newsletter-input">
+      <button type="submit" class="btn">SUBSCRIBE</button>
+    </form>
+    <p id="newsletterMsg" class="newsletter-msg" hidden>Thanks, you're on the list.</p>
+  </div>
+  -->
+  <p>Every game here is used under an open license (CC0, MIT, or equivalent) with the original creator credited on its play page.</p>
+  <p><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms</a> · <a href="licenses.html">Game Licenses &amp; Credits</a> · <a href="leaderboards.html">Leaderboards</a> · <a href="submit.html">Submit a Game</a> · <a href="about.html">About</a> · <a href="blog.html">Blog</a></p>
+</footer>
+
+<script src="js/games-data.js"></script>
+<script src="js/site.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/cookie-consent.js"></script>
+<script src="js/ads.js"></script>
+</body>
+</html>

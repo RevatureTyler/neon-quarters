@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  IMPORTANT: replace https://neonquarters.example below with your real domain
+  once you've bought and set it up (find/replace the whole file is easiest).
+  Also update the "Sitemap:" line in robots.txt to match.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://neonquarters.example/index.html</loc></url>
+  <url><loc>https://neonquarters.example/about.html</loc></url>
+  <url><loc>https://neonquarters.example/blog.html</loc></url>
+  <url><loc>https://neonquarters.example/blog-post.html?slug=welcome-to-neon-quarters</loc></url>
+  <url><loc>https://neonquarters.example/blog-post.html?slug=how-we-license-games</loc></url>
+  <url><loc>https://neonquarters.example/blog-post.html?slug=the-vault-just-grew</loc></url>
+  <url><loc>https://neonquarters.example/submit.html</loc></url>
+  <url><loc>https://neonquarters.example/licenses.html</loc></url>
+  <url><loc>https://neonquarters.example/privacy.html</loc></url>
+  <url><loc>https://neonquarters.example/terms.html</loc></url>
+  <url><loc>https://neonquarters.example/leaderboards.html</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=2048</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=canvas-tetris</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=0hh1</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=js-racer</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=astray</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=html5-asteroids</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=star-battle</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=classic-pool</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=bullet-hell</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=minesweeper</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=memory-match</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=connect-four</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=checkers</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=hangman</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=word-search</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=reaction-time</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=lights-out</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=fifteen-puzzle</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=snake</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=lunar-lander</loc></url>
+  <url><loc>https://neonquarters.example/game.html?id=typing-test</loc></url>
+</urlset>

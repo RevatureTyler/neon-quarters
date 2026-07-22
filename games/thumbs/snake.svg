@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+  <rect width="640" height="480" fill="#171c27"/>
+  <rect x="0" y="0" width="640" height="480" fill="none" stroke="#5ee6d9" stroke-width="3"/>
+  <g fill="#5ee6d9">
+    <rect x="260" y="220" width="30" height="30"/>
+    <rect x="290" y="220" width="30" height="30"/>
+    <rect x="320" y="220" width="30" height="30"/>
+    <rect x="320" y="190" width="30" height="30"/>
+    <rect x="320" y="160" width="30" height="30"/>
+    <rect x="350" y="160" width="30" height="30"/>
+  </g>
+  <rect x="410" y="160" width="30" height="30" fill="#ff3e9a"/>
+  <text x="320" y="400" font-family="monospace" font-size="42" font-weight="bold" fill="#ffb627" text-anchor="middle" letter-spacing="10">SNAKE</text>
+</svg>

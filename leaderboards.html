@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaderboards: Neon Quarters</title>
+<meta name="description" content="Your personal high scores, most played games, ratings, and favorites on Neon Quarters.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Leaderboards: Neon Quarters">
+<meta property="og:description" content="Your personal high scores, most played games, ratings, and favorites on Neon Quarters.">
+<meta property="og:image" content="games/thumbs/js-racer.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Leaderboards: Neon Quarters">
+<meta name="twitter:description" content="Your personal high scores, most played games, ratings, and favorites on Neon Quarters.">
+<meta name="twitter:image" content="games/thumbs/js-racer.jpg">
+<script src="js/theme-init.js"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo"><a href="index.html" style="color:inherit"><span class="coin"></span> NEON QUARTERS</a></div>
+  <button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀</button>
+</header>
+
+<main>
+  <p class="section-label">LEADERBOARDS</p>
+  <h1 style="font-size:1.1rem; margin:0 0 0.5rem;">Your arcade stats</h1>
+  <p class="tagline" style="margin-bottom:1.75rem;">
+    Everything below is tracked in this browser only, the same as your favorites and
+    ratings. There's no account and no server, so this is a personal record, not a
+    ranking against other players. See the <a href="privacy.html">Privacy Policy</a>
+    for details.
+  </p>
+
+  <div class="leaderboard-tabs">
+    <a href="#high-scores">High Scores</a>
+    <a href="#most-played">Most Played</a>
+    <a href="#top-rated">Top Rated</a>
+    <a href="#favorites">Favorites</a>
+  </div>
+
+  <div class="leaderboard" id="highScoresSection">
+    <p class="section-label" id="high-scores">HIGH SCORES</p>
+    <p class="empty-note" hidden>No scores tracked yet. Play 2048 or Asteroids to start one. Score tracking only works on games we've wired it up for.</p>
+    <ol class="leaderboard-list" id="highScoresList"></ol>
+  </div>
+
+  <div class="leaderboard" id="mostPlayedSection">
+    <p class="section-label" id="most-played">MOST PLAYED</p>
+    <p class="empty-note" hidden>No plays tracked yet. Go play something.</p>
+    <ol class="leaderboard-list" id="mostPlayedList"></ol>
+  </div>
+
+  <div class="leaderboard" id="topRatedSection">
+    <p class="section-label" id="top-rated">TOP RATED (BY YOU)</p>
+    <p class="empty-note" hidden>You haven't rated any games yet. Rate one from its play page.</p>
+    <ol class="leaderboard-list" id="topRatedList"></ol>
+  </div>
+
+  <div class="leaderboard" id="favoritesSection">
+    <p class="section-label" id="favorites">FAVORITES</p>
+    <p class="empty-note" hidden>No favorites yet. Hit the heart on any game card to add one.</p>
+    <div class="game-grid" id="favoritesGrid"></div>
+  </div>
+</main>
+
+<footer>
+  <p><a href="index.html">&larr; Back to arcade</a> · <a href="licenses.html">Game Licenses &amp; Credits</a> · <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+<script src="js/games-data.js"></script>
+<script src="js/leaderboards.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/cookie-consent.js"></script>
+</body>
+</html>
