@@ -12,16 +12,29 @@
 //   });
 const COOKIE_CONSENT_KEY = 'nq-cookie-consent';
 
+// Callbacks registered before the visitor has made a choice yet (the usual
+// case for a first-time visitor, since the banner is still up when ad slots
+// first check for consent). Run once accept happens, whenever that is.
+const pendingConsentCallbacks = [];
+
 function getCookieConsent() {
   return localStorage.getItem(COOKIE_CONSENT_KEY); // 'accepted' | 'declined' | null
 }
 
 function setCookieConsent(value) {
   localStorage.setItem(COOKIE_CONSENT_KEY, value);
+  if (value === 'accepted') {
+    pendingConsentCallbacks.splice(0).forEach((fn) => fn());
+  }
 }
 
 function nqLoadIfConsented(loadFn) {
-  if (getCookieConsent() === 'accepted') loadFn();
+  const consent = getCookieConsent();
+  if (consent === 'accepted') {
+    loadFn();
+  } else if (consent === null) {
+    pendingConsentCallbacks.push(loadFn);
+  }
 }
 window.nqLoadIfConsented = nqLoadIfConsented;
 

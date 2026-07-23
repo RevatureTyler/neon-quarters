@@ -1016,7 +1016,15 @@ footer a { color: var(--text-dim); }
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  width: 100%;
+}
+
+.ad-unit .adsbygoogle {
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .ad-slot, .ad-unit { min-height: 50px; }
 }
 
 .high-score-block {
