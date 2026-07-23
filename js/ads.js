@@ -3,7 +3,7 @@
 // README's "Turning ads on" section. Until then, ADSENSE_CONFIGURED is false
 // and every .ad-slot just shows its current placeholder box, so the layout
 // looks intentional instead of broken.
-const ADSENSE_CLIENT = 'ca-pub-XXXXXXXXXXXXXXXX'; // TODO: replace after approval
+const ADSENSE_CLIENT = 'ca-pub-2636244885787785';
 const ADSENSE_CONFIGURED = !ADSENSE_CLIENT.includes('XXXX');
 
 let adsenseLoadPromise = null;
