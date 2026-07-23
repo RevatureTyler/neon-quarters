@@ -1,0 +1,23 @@
+{
+  "name": "arcade-site",
+  "version": "1.0.0",
+  "description": "Neon Quarters arcade site, plus a daily AdSense/GA4 revenue report script.",
+  "main": "daily-revenue-report.js",
+  "scripts": {
+    "report": "node daily-revenue-report.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RevatureTyler/neon-quarters.git"
+  },
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RevatureTyler/neon-quarters/issues"
+  },
+  "homepage": "https://github.com/RevatureTyler/neon-quarters#readme",
+  "dependencies": {
+    "googleapis": "^173.0.0",
+    "nodemailer": "^9.0.3"
+  }
+}
