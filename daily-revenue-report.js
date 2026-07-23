@@ -1,24 +1,43 @@
 // Pulls yesterday's AdSense earnings and GA4 traffic and emails a summary.
 // Run manually with `npm run report`, or via the daily-report GitHub Action.
 //
+// GA4 uses the service account key (service-account.json) directly, since
+// AdSense's API doesn't support plain service-account access (invites sent
+// to a service account's email can never be "accepted"). AdSense instead
+// uses OAuth with a refresh token obtained once via get-adsense-refresh-token.js.
+//
 // Required environment variables:
-//   ADSENSE_ACCOUNT_ID   e.g. pub-1234567890123456
-//   GA4_PROPERTY_ID      e.g. 123456789
+//   ADSENSE_ACCOUNT_ID         e.g. pub-1234567890123456
+//   GA4_PROPERTY_ID            e.g. 123456789
+//   ADSENSE_OAUTH_CLIENT_ID
+//   ADSENSE_OAUTH_CLIENT_SECRET
+//   ADSENSE_OAUTH_REFRESH_TOKEN
+//
+// Optional (both must be set together to actually send an email; if either
+// is missing, the report is just printed to the console/log instead):
 //   EMAIL_USER           the Gmail address to send from and to
 //   EMAIL_APP_PASSWORD   a Gmail App Password (myaccount.google.com/apppasswords)
 //
 // Also requires a service-account.json key file in this directory, granted
-// read access to both the AdSense account and the GA4 property.
+// read access to the GA4 property.
 
 const { google } = require('googleapis');
+const { OAuth2Client } = require('google-auth-library');
 const nodemailer = require('nodemailer');
 const fs = require('fs');
 const path = require('path');
 
 const KEY_FILE = path.join(__dirname, 'service-account.json');
+const EMAIL_CONFIGURED = Boolean(process.env.EMAIL_USER && process.env.EMAIL_APP_PASSWORD);
 
 function requireEnv() {
-  const required = ['ADSENSE_ACCOUNT_ID', 'GA4_PROPERTY_ID', 'EMAIL_USER', 'EMAIL_APP_PASSWORD'];
+  const required = [
+    'ADSENSE_ACCOUNT_ID',
+    'GA4_PROPERTY_ID',
+    'ADSENSE_OAUTH_CLIENT_ID',
+    'ADSENSE_OAUTH_CLIENT_SECRET',
+    'ADSENSE_OAUTH_REFRESH_TOKEN',
+  ];
   const missing = required.filter((key) => !process.env[key]);
   if (missing.length) {
     throw new Error(`Missing required environment variables: ${missing.join(', ')}`);
@@ -76,6 +95,13 @@ async function getGA4Metrics(auth) {
   return { activeUsers, sessions, pageViews, avgSessionDuration: Math.round(Number(avgSessionDuration)) };
 }
 
+function printReport({ date, adsense, ga4 }) {
+  console.log(`\nNeon Quarters daily report — ${date}`);
+  console.log('AdSense:', adsense);
+  console.log('GA4:', ga4);
+  console.log('\n(EMAIL_USER / EMAIL_APP_PASSWORD not set, so no email was sent.)');
+}
+
 async function sendReportEmail({ date, adsense, ga4 }) {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -115,19 +141,26 @@ async function sendReportEmail({ date, adsense, ga4 }) {
 async function main() {
   requireEnv();
 
-  const auth = new google.auth.GoogleAuth({
+  const ga4Auth = new google.auth.GoogleAuth({
     keyFile: KEY_FILE,
-    scopes: [
-      'https://www.googleapis.com/auth/adsense.readonly',
-      'https://www.googleapis.com/auth/analytics.readonly',
-    ],
+    scopes: ['https://www.googleapis.com/auth/analytics.readonly'],
   });
 
-  const date = yesterdayLabel();
-  const [adsense, ga4] = await Promise.all([getAdSenseEarnings(auth), getGA4Metrics(auth)]);
+  const adsenseAuth = new OAuth2Client(
+    process.env.ADSENSE_OAUTH_CLIENT_ID,
+    process.env.ADSENSE_OAUTH_CLIENT_SECRET
+  );
+  adsenseAuth.setCredentials({ refresh_token: process.env.ADSENSE_OAUTH_REFRESH_TOKEN });
 
-  await sendReportEmail({ date, adsense, ga4 });
-  console.log('Daily report sent for', date, { adsense, ga4 });
+  const date = yesterdayLabel();
+  const [adsense, ga4] = await Promise.all([getAdSenseEarnings(adsenseAuth), getGA4Metrics(ga4Auth)]);
+
+  if (EMAIL_CONFIGURED) {
+    await sendReportEmail({ date, adsense, ga4 });
+    console.log('Daily report emailed for', date, { adsense, ga4 });
+  } else {
+    printReport({ date, adsense, ga4 });
+  }
 }
 
 main().catch((err) => {

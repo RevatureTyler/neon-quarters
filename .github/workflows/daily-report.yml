@@ -27,6 +27,9 @@ jobs:
         env:
           ADSENSE_ACCOUNT_ID: ${{ secrets.ADSENSE_ACCOUNT_ID }}
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          ADSENSE_OAUTH_CLIENT_ID: ${{ secrets.ADSENSE_OAUTH_CLIENT_ID }}
+          ADSENSE_OAUTH_CLIENT_SECRET: ${{ secrets.ADSENSE_OAUTH_CLIENT_SECRET }}
+          ADSENSE_OAUTH_REFRESH_TOKEN: ${{ secrets.ADSENSE_OAUTH_REFRESH_TOKEN }}
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
         run: node daily-revenue-report.js
