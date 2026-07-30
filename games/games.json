@@ -334,5 +334,37 @@
     "creatorBio": "Built by Shreya Agarwal using plain HTML5, CSS, and JavaScript.",
     "description": "A straightforward typing benchmark. Type the words shown as accurately and quickly as you can before the timer runs out, choosing your own time limit and difficulty.",
     "howToPlay": "Pick a time limit (30 or 60 seconds) and a difficulty, then start typing the displayed words into the box. Your words-per-minute score updates as you go. Try to beat your own best."
+  },
+  {
+    "id": "pong",
+    "title": "Pong",
+    "added": "2026-07-29",
+    "type": "html5",
+    "path": "games/files/pong/index.html",
+    "thumb": "games/thumbs/pong.png",
+    "genre": "Arcade",
+    "tags": ["Arcade", "Retro", "Classic", "Two Player", "Single Player"],
+    "license": "MIT",
+    "source": "https://github.com/jakesgordon/javascript-pong",
+    "credit": "Jake Gordon",
+    "creatorBio": "Jake Gordon built this Pong clone as a tutorial series on JavaScript game development fundamentals, the same author behind JS Racer.",
+    "description": "The original two paddle classic, rebuilt in vanilla JavaScript with real ball physics on a canvas. Play solo against the computer, go head to head with a friend, or just watch the AI play itself.",
+    "howToPlay": "Press 1 for a single player game, 2 for two player, or 0 to watch the computer play itself. Player 1 moves with Q and A, Player 2 moves with P and L. Esc abandons a game in progress."
+  },
+  {
+    "id": "tic-tac-toe",
+    "title": "Tic-Tac-Toe",
+    "added": "2026-07-29",
+    "type": "html5",
+    "path": "games/files/tic-tac-toe/index.html",
+    "thumb": "games/thumbs/tic-tac-toe.png",
+    "genre": "Board",
+    "tags": ["Board", "Strategy", "Single Player", "Classic"],
+    "license": "MIT",
+    "source": "https://github.com/Mostafa-Samir/Tic-Tac-Toe-AI",
+    "credit": "Mostafa Samir",
+    "creatorBio": "Mostafa Samir built this as a demonstration of the minimax algorithm, the standard approach behind an unbeatable tic-tac-toe AI.",
+    "description": "Classic tic-tac-toe against a computer opponent that plays perfectly at its hardest setting. Choose from three AI strengths and try to force at least a draw.",
+    "howToPlay": "Pick a difficulty (Blind, Novice, or Master), then click any empty square to place your mark. Get three in a row before the computer does, or hold out for a draw against Master."
   }
 ]
