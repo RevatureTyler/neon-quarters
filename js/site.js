@@ -32,19 +32,7 @@ function renderFavorites() {
   const games = GAMES.filter(g => favs.includes(g.id));
   if (!games.length) { section.hidden = true; return; }
   section.hidden = false;
-  grid.innerHTML = games.map(g => `
-    <a href="game.html?id=${encodeURIComponent(g.id)}" class="game-card">
-      <button type="button" class="fav-toggle active" data-id="${g.id}" aria-label="Remove from favorites">♥</button>
-      <div class="thumb"><img src="${g.thumb}" alt="${g.title}" loading="lazy"></div>
-      <div class="info">
-        <p class="title">${g.title}</p>
-        <div class="badges">
-          <span class="genre">${g.genre}</span>
-          <span class="license-badge">${g.license}</span>
-        </div>
-      </div>
-    </a>
-  `).join('');
+  grid.innerHTML = games.map(g => renderGameCard(g, { favToggle: true, isFavorite: true })).join('');
 }
 
 function renderGrid() {
@@ -64,26 +52,12 @@ function renderGrid() {
     return;
   }
 
-  list.forEach(g => {
-    const favs = getFavorites();
-    const isFav = favs.includes(g.id);
-    const card = document.createElement('a');
-    card.href = `game.html?id=${encodeURIComponent(g.id)}`;
-    card.className = 'game-card';
-    card.innerHTML = `
-      <button type="button" class="fav-toggle${isFav ? ' active' : ''}" data-id="${g.id}" aria-label="${isFav ? 'Remove from' : 'Add to'} favorites">${isFav ? '♥' : '♡'}</button>
-      <button type="button" class="quick-view" data-id="${g.id}">QUICK VIEW</button>
-      <div class="thumb"><img src="${g.thumb}" alt="${g.title}" loading="lazy"></div>
-      <div class="info">
-        <p class="title">${g.title}</p>
-        <div class="badges">
-          <span class="genre">${g.genre}</span>
-          <span class="license-badge">${g.license}</span>
-        </div>
-      </div>
-    `;
-    grid.appendChild(card);
-  });
+  const favs = getFavorites();
+  grid.innerHTML = list.map(g => renderGameCard(g, {
+    favToggle: true,
+    quickView: true,
+    isFavorite: favs.includes(g.id),
+  })).join('');
 }
 
 function renderFilters() {

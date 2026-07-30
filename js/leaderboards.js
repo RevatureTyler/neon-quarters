@@ -22,85 +22,54 @@ function lbGetHighScores() {
   catch (e) { return {}; }
 }
 
+// Shared by the three ranked lists below (high scores, most played, top
+// rated): same markup, only how the entries are gathered/sorted and what
+// the count column shows differs.
+function renderRankedList(sectionId, listId, entries, countLabel) {
+  const section = document.getElementById(sectionId);
+  const list = document.getElementById(listId);
+  const ranked = entries.filter(r => r.game);
+
+  if (!ranked.length) {
+    section.querySelector('.empty-note').hidden = false;
+    list.innerHTML = '';
+    return;
+  }
+  section.querySelector('.empty-note').hidden = true;
+  list.innerHTML = ranked.map((r, i) => `
+    <li>
+      <a href="game.html?id=${encodeURIComponent(r.game.id)}" class="leaderboard-item">
+        <span class="rank">#${i + 1}</span>
+        <span class="lb-thumb"><img src="${r.game.thumb}" alt="${r.game.title}" loading="lazy"></span>
+        <span class="lb-title">${r.game.title}</span>
+        <span class="lb-count">${countLabel(r)}</span>
+      </a>
+    </li>
+  `).join('');
+}
+
 function renderHighScores() {
-  const section = document.getElementById('highScoresSection');
-  const list = document.getElementById('highScoresList');
   const scores = lbGetHighScores();
   const ranked = Object.entries(scores)
     .map(([id, score]) => ({ game: GAMES.find(g => g.id === id), score }))
-    .filter(r => r.game)
     .sort((a, b) => b.score - a.score);
-
-  if (!ranked.length) {
-    section.querySelector('.empty-note').hidden = false;
-    list.innerHTML = '';
-    return;
-  }
-  section.querySelector('.empty-note').hidden = true;
-  list.innerHTML = ranked.map((r, i) => `
-    <li>
-      <a href="game.html?id=${encodeURIComponent(r.game.id)}" class="leaderboard-item">
-        <span class="rank">#${i + 1}</span>
-        <span class="lb-thumb"><img src="${r.game.thumb}" alt="${r.game.title}" loading="lazy"></span>
-        <span class="lb-title">${r.game.title}</span>
-        <span class="lb-count">${r.score.toLocaleString()} pts</span>
-      </a>
-    </li>
-  `).join('');
+  renderRankedList('highScoresSection', 'highScoresList', ranked, r => `${r.score.toLocaleString()} pts`);
 }
 
 function renderMostPlayed() {
-  const section = document.getElementById('mostPlayedSection');
-  const list = document.getElementById('mostPlayedList');
   const plays = lbGetPlays();
   const ranked = Object.entries(plays)
     .map(([id, count]) => ({ game: GAMES.find(g => g.id === id), count }))
-    .filter(r => r.game)
     .sort((a, b) => b.count - a.count);
-
-  if (!ranked.length) {
-    section.querySelector('.empty-note').hidden = false;
-    list.innerHTML = '';
-    return;
-  }
-  section.querySelector('.empty-note').hidden = true;
-  list.innerHTML = ranked.map((r, i) => `
-    <li>
-      <a href="game.html?id=${encodeURIComponent(r.game.id)}" class="leaderboard-item">
-        <span class="rank">#${i + 1}</span>
-        <span class="lb-thumb"><img src="${r.game.thumb}" alt="${r.game.title}" loading="lazy"></span>
-        <span class="lb-title">${r.game.title}</span>
-        <span class="lb-count">${r.count} play${r.count > 1 ? 's' : ''}</span>
-      </a>
-    </li>
-  `).join('');
+  renderRankedList('mostPlayedSection', 'mostPlayedList', ranked, r => `${r.count} play${r.count > 1 ? 's' : ''}`);
 }
 
 function renderTopRated() {
-  const section = document.getElementById('topRatedSection');
-  const list = document.getElementById('topRatedList');
   const ratings = lbGetRatings();
   const ranked = Object.entries(ratings)
     .map(([id, rating]) => ({ game: GAMES.find(g => g.id === id), rating }))
-    .filter(r => r.game)
     .sort((a, b) => b.rating - a.rating);
-
-  if (!ranked.length) {
-    section.querySelector('.empty-note').hidden = false;
-    list.innerHTML = '';
-    return;
-  }
-  section.querySelector('.empty-note').hidden = true;
-  list.innerHTML = ranked.map((r, i) => `
-    <li>
-      <a href="game.html?id=${encodeURIComponent(r.game.id)}" class="leaderboard-item">
-        <span class="rank">#${i + 1}</span>
-        <span class="lb-thumb"><img src="${r.game.thumb}" alt="${r.game.title}" loading="lazy"></span>
-        <span class="lb-title">${r.game.title}</span>
-        <span class="lb-count">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</span>
-      </a>
-    </li>
-  `).join('');
+  renderRankedList('topRatedSection', 'topRatedList', ranked, r => `${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}`);
 }
 
 function renderFavoritesList() {
@@ -115,18 +84,7 @@ function renderFavoritesList() {
     return;
   }
   section.querySelector('.empty-note').hidden = true;
-  grid.innerHTML = games.map(g => `
-    <a href="game.html?id=${encodeURIComponent(g.id)}" class="game-card">
-      <div class="thumb"><img src="${g.thumb}" alt="${g.title}" loading="lazy"></div>
-      <div class="info">
-        <p class="title">${g.title}</p>
-        <div class="badges">
-          <span class="genre">${g.genre}</span>
-          <span class="license-badge">${g.license}</span>
-        </div>
-      </div>
-    </a>
-  `).join('');
+  grid.innerHTML = games.map(g => renderGameCard(g)).join('');
 }
 
 window.gamesReady.then(() => {

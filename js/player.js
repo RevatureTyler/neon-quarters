@@ -547,16 +547,5 @@ function renderMoreGames(current) {
   const grid = document.getElementById('moreGrid');
   if (!grid) return;
   const others = GAMES.filter(g => g.id !== current.id).slice(0, 4);
-  grid.innerHTML = others.map(g => `
-    <a href="game.html?id=${encodeURIComponent(g.id)}" class="game-card">
-      <div class="thumb"><img src="${g.thumb}" alt="${g.title}" loading="lazy"></div>
-      <div class="info">
-        <p class="title">${g.title}</p>
-        <div class="badges">
-          <span class="genre">${g.genre}</span>
-          <span class="license-badge">${g.license}</span>
-        </div>
-      </div>
-    </a>
-  `).join('');
+  grid.innerHTML = others.map(g => renderGameCard(g)).join('');
 }
