@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Replace with your real domain once you're live (see sitemap.xml's own note too)
-Sitemap: https://neonquarters.example/sitemap.xml
+Sitemap: https://neonquarter.online/sitemap.xml
