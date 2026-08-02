@@ -55,6 +55,14 @@ function loadGame() {
     howToEl.hidden = true;
   }
 
+  const tipsEl = document.getElementById('tipsSection');
+  if (game.tips) {
+    document.getElementById('tipsText').textContent = game.tips;
+    tipsEl.hidden = false;
+  } else {
+    tipsEl.hidden = true;
+  }
+
   const ogDesc = game.description || `Play ${game.title} free, instantly, in your browser. ${game.genre}, ${game.license} licensed.`;
   document.getElementById('ogTitle').content = `${game.title} on Neon Quarters`;
   document.getElementById('ogDescription').content = ogDesc;

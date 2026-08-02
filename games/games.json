@@ -7,13 +7,20 @@
     "path": "games/files/2048/index.html",
     "thumb": "games/thumbs/2048.png",
     "genre": "Puzzle",
-    "tags": ["Puzzle", "Numbers", "Sliding Tiles", "Single Player", "Casual"],
+    "tags": [
+      "Puzzle",
+      "Numbers",
+      "Sliding Tiles",
+      "Single Player",
+      "Casual"
+    ],
     "license": "MIT",
     "source": "https://github.com/gabrielecirulli/2048",
     "credit": "Gabriele Cirulli",
     "creatorBio": "Gabriele Cirulli built 2048 as a weekend project in 2014; it went on to spawn an entire genre of tile matching games.",
-    "description": "Slide numbered tiles across a 4x4 grid. When two tiles carrying the same number touch, they merge into one tile worth their sum. The board fills up fast, so the real game is deciding which merges to chase and which to leave for later.",
-    "howToPlay": "Press the arrow keys (or swipe on a touchscreen) to slide every tile on the board in that direction at once. Matching tiles merge into their sum. Reach a 2048 tile before the grid fills up and you run out of moves."
+    "description": "2048 was built by Gabriele Cirulli over a single weekend in March 2014, and it exploded far past anything he expected: within weeks it had spawned hundreds of clones, spinoffs, and a genuine mainstream media debate about whether it had lifted its core idea from Threes!, a mobile game released a few months earlier by Asher Vollmer, Greg Wohlwend, and Jimmy Hinson. Cirulli was upfront that he'd based his version on an earlier open source clone of Threes! called 1024, and the whole saga became a small case study in how fast an idea can mutate once it's released into the world without a patent behind it. What's left standing a decade later is the version that actually stuck: a single 4x4 grid, four directions, and one rule so simple you can explain it in a sentence but never quite master. The tension is entirely self-inflicted. Nobody is chasing you, there's no timer, and the only thing standing between you and the 2048 tile is the board slowly filling up with tiles you were too eager to create.",
+    "howToPlay": "Press the arrow keys (or swipe on a touchscreen) to slide every tile on the board in that direction at once. Matching tiles merge into their sum. Reach a 2048 tile before the grid fills up and you run out of moves.",
+    "tips": "The single biggest lever is keeping your highest tile permanently parked in one corner and never moving it out. Pick a corner early, then restrict yourself to two directions instead of four, using the third only when you're forced to. Build your second and third highest tiles in a descending chain leading away from that corner, like a staircase, so every merge cascades toward your anchor instead of scattering. Resist the urge to chase a tempting merge in the middle of the board if it means disturbing that chain; a happy 4 in the wrong spot has ended more good runs than bad luck ever has. Once the board gets tight, slow down and count: if a move doesn't either merge something or open a new empty cell, it's often better skipped."
   },
   {
     "id": "canvas-tetris",
@@ -23,13 +30,19 @@
     "path": "games/files/canvas-tetris/index.html",
     "thumb": "games/thumbs/canvas-tetris.png",
     "genre": "Puzzle",
-    "tags": ["Puzzle", "Falling Blocks", "Classic", "Single Player"],
+    "tags": [
+      "Puzzle",
+      "Falling Blocks",
+      "Classic",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/dionyziz/canvas-tetris",
     "credit": "Dionysis Zindros",
     "creatorBio": "Dionysis Zindros wrote this Tetris clone in about 45 minutes as a teaching example for HTML5 canvas basics.",
-    "description": "A no frills take on the falling block classic. Pieces drop from the top of the board, and clearing a full horizontal line removes it and shifts everything above it down.",
-    "howToPlay": "Left and right arrows move the current piece sideways, the down arrow moves it down, up rotates it, and space drops it instantly. Clear complete horizontal lines before the stack reaches the top of the board."
+    "description": "Tetris itself was invented in 1984 by Alexey Pajitnov, a researcher at the Soviet Academy of Sciences in Moscow, who built the first version on an Elektronika 60 with graphics made entirely out of text characters because the machine had no real graphics hardware. What followed was one of the strangest licensing sagas in games history, involving the Soviet government's software export agency and a scramble by multiple companies to claim the rights, eventually settled by the deal that put a portable version on the original Game Boy in 1989 and turned it into a global phenomenon. This particular implementation, built by Dionysis Zindros as a teaching example, strips the game back down to the fundamentals Pajitnov started with: seven falling pieces, one grid, and the simple rule that a completed horizontal line disappears. There's no modern hold queue or next-piece preview beyond what you see, just the pure mechanical loop that's been rebuilt in nearly every programming language that exists as a rite of passage for game developers.",
+    "howToPlay": "Left and right arrows move the current piece sideways, the down arrow moves it down, up rotates it, and space drops it instantly. Clear complete horizontal lines before the stack reaches the top of the board.",
+    "tips": "Keep your stack as flat and even as possible rather than building tall in one column; an uneven surface is what forces bad placements later, not bad luck. Reserve the long I-piece for clearing multiple lines at once instead of using it to patch a single gap, since burning it early on a one-line clear wastes its highest value use. Leave one column open on the side rather than the middle, since a single deep well is far easier to fill cleanly with an I-piece than a gap boxed in on both sides. When you're not sure where a piece goes, prioritize keeping the top of the stack low over completing any particular line; height is what ends games, not a few uneven gaps near the bottom."
   },
   {
     "id": "0hh1",
@@ -39,13 +52,19 @@
     "path": "games/files/0hh1/index.html",
     "thumb": "games/thumbs/0hh1.png",
     "genre": "Puzzle",
-    "tags": ["Puzzle", "Logic", "Binary Puzzle", "Single Player"],
+    "tags": [
+      "Puzzle",
+      "Logic",
+      "Binary Puzzle",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/florisluiten/0hh1",
     "credit": "Q42 (original design), code mirrored by Floris Luiten",
     "creatorBio": "Originally designed by Dutch studio Q42, 0h h1 is a binary logic puzzle in the spirit of Sudoku.",
-    "description": "A binary logic puzzle where every cell is either blue or red. The rules are simple to state and surprisingly tricky to satisfy all at once: no more than two of the same color in a row, each row and column needs an equal split, and no two rows or columns can be identical.",
-    "howToPlay": "Click a cell to cycle it between empty, blue, and red. Fill the whole grid so every row and column follows the three rules above. The game flags a rule as soon as it's broken and tells you when the puzzle is solved."
+    "description": "0h h1 was designed by the Dutch studio Q42 as a spin on a much older pencil-and-paper puzzle usually called Binairo or Takuzu, itself a binary relative of Sudoku built entirely around two colors instead of nine numbers. The rules sound almost too simple to be a real puzzle: no more than two of the same color touching in a row, each row and column needs an even split, and no two rows or columns can be exact duplicates of each other. In practice those three constraints interact in ways that force long chains of logical deduction, the same style of reasoning that makes Sudoku addictive, just wearing a different disguise. Because there's no guessing required in a well formed puzzle, every square you fill in should be something you can actually justify from the rules, which makes 0h h1 a genuinely good way to warm up the kind of deductive thinking that carries over into every other logic puzzle on this site.",
+    "howToPlay": "Click a cell to cycle it between empty, blue, and red. Fill the whole grid so every row and column follows the three rules above. The game flags a rule as soon as it's broken and tells you when the puzzle is solved.",
+    "tips": "Start by scanning for any two matching colors already sitting next to each other, since the rule against three in a row means the very next cell in that direction is forced to be the opposite color. Once a row or column has three of one color and two of the other, the remaining cell is forced too, since every line needs an even split. The duplicate-line rule is the one people forget: if two rows differ by only their last unfilled cell, that cell's value is often locked in immediately because the finished versions can't be identical. Work the easy forced cells first before touching anything that requires guessing; a properly designed puzzle never actually needs a guess."
   },
   {
     "id": "js-racer",
@@ -55,13 +74,19 @@
     "path": "games/files/js-racer/v4.final.html",
     "thumb": "games/thumbs/js-racer.jpg",
     "genre": "Racing",
-    "tags": ["Racing", "Arcade", "Retro", "Single Player"],
+    "tags": [
+      "Racing",
+      "Arcade",
+      "Retro",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/jakesgordon/javascript-racer",
     "credit": "Jake Gordon",
     "creatorBio": "Jake Gordon built this pseudo 3D racer to demonstrate classic Outrun style rendering tricks in plain JavaScript.",
-    "description": "A pseudo 3D racing game built the way Sega arcade racers did it in the 80s and 90s: no real 3D models, just clever scaling and curve math drawn on a flat canvas. Traffic, roadside billboards, and hills all react as you drive past.",
-    "howToPlay": "Left/right arrows or A/D steer, up arrow or W accelerates, down arrow or S brakes. Stay on the road and watch your fastest lap time in the HUD at the top of the screen."
+    "description": "Jake Gordon built this racer to demonstrate pseudo 3D, the rendering trick that let 1980s and early 90s arcade cabinets like Out Run and Rad Racer simulate a rushing 3D road on hardware with no real 3D capability at all. The technique is really just clever 2D math: each horizontal strip of road is drawn slightly narrower and shifted than the one below it, and curves are faked by shifting those strips sideways in a wave, creating the illusion of a road bending away into the distance without a single 3D polygon anywhere in the code. It's the same family of trick Mode 7 used on the SNES and that Namco and Sega racing cabinets relied on before real 3D hardware existed, and seeing it work in a few hundred lines of plain JavaScript is a genuinely good window into how much old arcade hardware got away with. Traffic, roadside billboards, and hills all react convincingly as you pass them, entirely through the same layered strip trick.",
+    "howToPlay": "Left/right arrows or A/D steer, up arrow or W accelerates, down arrow or S brakes. Stay on the road and watch your fastest lap time in the HUD at the top of the screen.",
+    "tips": "Brake before a curve rather than during it; pseudo 3D racers like this one reward anticipation since the road's curvature is telegraphed a few strips ahead of where you currently are on screen. Stay toward the inside of the upcoming curve's direction rather than hugging the center line, since it shortens the effective distance you travel through the bend. Watch the gap between oncoming cars rather than the cars themselves, since the danger is almost always in the timing of when a gap closes, not the traffic's absolute position. Small, early steering corrections keep your line stable far better than a sharp late correction, which tends to overshoot on a curved road."
   },
   {
     "id": "astray",
@@ -71,13 +96,20 @@
     "path": "games/files/astray/index.html",
     "thumb": "games/thumbs/astray.jpg",
     "genre": "Adventure",
-    "tags": ["Adventure", "3D", "Maze", "Physics", "Single Player"],
+    "tags": [
+      "Adventure",
+      "3D",
+      "Maze",
+      "Physics",
+      "Single Player"
+    ],
     "license": "Unlicense (public domain)",
     "source": "https://github.com/wwwtyro/Astray",
     "credit": "wwwtyro",
     "creatorBio": "A WebGL maze built with Three.js and Box2D physics by developer wwwtyro.",
-    "description": "A first person 3D maze with real physics behind it: the ball you control actually rolls and bounces off walls rather than teleporting between grid cells. Find the exit before you lose track of where you've been.",
-    "howToPlay": "The arrow keys (or the vim style H/J/K/L keys) tilt the maze to roll your ball around. Press I at any time to bring up in game instructions. Find the exit to complete the maze."
+    "description": "Astray belongs to a genre that's much older than video games themselves: the tilt maze, the kind of wooden box with a glass lid and a steel ball you tilt by hand, patented in various forms going back over a century. Developer wwwtyro rebuilt that exact physical sensation entirely in the browser using Three.js for the 3D rendering and Box2D for genuine physics simulation, so the ball actually rolls, accelerates, and bounces off walls according to real momentum rather than snapping between grid cells the way a lot of browser maze games cheat it. That distinction matters more than it sounds: a physics-driven maze punishes overcorrection the same way a real tilt maze does, and finding the exit means learning to make small, deliberate adjustments rather than fighting the ball's momentum after the fact. It's released into the public domain, free of any license restrictions at all, which is part of why it's held up as a small showcase of what WebGL could do in a browser years before that became routine.",
+    "howToPlay": "The arrow keys (or the vim style H/J/K/L keys) tilt the maze to roll your ball around. Press I at any time to bring up in game instructions. Find the exit to complete the maze.",
+    "tips": "Tilt in short taps rather than holding a direction down, since the ball's momentum keeps building the whole time you're pressing a key and small taps are far easier to correct than a full-speed roll. When you're approaching a turn, start easing off before you reach it rather than at the corner itself, the same way you'd brake before a curve in a real vehicle. If the ball starts oscillating back and forth against a wall, stop tilting entirely for a moment and let momentum bleed off before trying again, since fighting it with more tilt usually makes the oscillation worse. Look ahead at the next two turns rather than just the one you're in, since the maze rewards planning your line rather than reacting turn by turn."
   },
   {
     "id": "html5-asteroids",
@@ -87,13 +119,20 @@
     "path": "games/files/html5-asteroids/index.html",
     "thumb": "games/thumbs/html5-asteroids.png",
     "genre": "Arcade",
-    "tags": ["Arcade", "Shooter", "Space", "Retro", "Single Player"],
+    "tags": [
+      "Arcade",
+      "Shooter",
+      "Space",
+      "Retro",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/dmcinnes/HTML5-Asteroids",
     "credit": "Doug McInnes",
     "creatorBio": "Doug McInnes wrote this pure JavaScript take on the arcade classic back in 2010.",
-    "description": "A faithful remake of the 1979 arcade classic in pure JavaScript. Rotate and thrust your ship through an asteroid field, breaking rocks into smaller pieces before they, or the saucers hunting you, catch up.",
-    "howToPlay": "Left/right arrows rotate your ship, up arrow thrusts forward, and space fires. Destroy asteroids and enemy saucers for points; colliding with either ends your run."
+    "description": "The original Asteroids shipped from Atari in 1979, designed by Lyle Rains and programmed by Ed Logg, and it became one of the defining games of the golden age of arcades partly because of a hardware quirk: it used vector graphics, sharp glowing outlines drawn directly by the monitor's electron beam rather than a grid of pixels, which is why the ship and rocks look like thin white line art instead of filled sprites. That same vector look is reproduced faithfully here in plain canvas drawing calls, right down to the way asteroids split into smaller fragments when you hit them and the way both your ship and the rocks wrap around the edges of the screen instead of stopping at a wall. Doug McInnes built this as a close line-for-line recreation rather than a reinterpretation, which makes it a good way to feel exactly what made the original click: momentum that never fully stops, a screen with no real edges, and rocks that only get more dangerous the more you break them apart.",
+    "howToPlay": "Left/right arrows rotate your ship, up arrow thrusts forward, and space fires. Destroy asteroids and enemy saucers for points; colliding with either ends your run.",
+    "tips": "Thrust in short bursts and let momentum carry you rather than holding the thrust key down, since your ship never has a limit on speed and over-thrusting is how most runs end against a rock you couldn't turn away from in time. Use the screen wraparound deliberately, not just as an escape: flying off one edge to approach a cluster of asteroids from the opposite side can put you at a much safer angle than fighting through the middle. Prioritize saucers over asteroids when both are on screen, since saucers actively hunt you down while asteroids only drift, and an ignored saucer is far more likely to end your run than a rock you can dodge around. Big asteroids are safer to shoot from a distance since they split into two smaller, faster fragments that scatter unpredictably the instant you hit them."
   },
   {
     "id": "star-battle",
@@ -103,13 +142,20 @@
     "path": "games/files/star-battle/index.html",
     "thumb": "games/thumbs/star-battle.png",
     "genre": "Shooter",
-    "tags": ["Shooter", "Arcade", "Space", "Competition Game", "Single Player"],
+    "tags": [
+      "Shooter",
+      "Arcade",
+      "Space",
+      "Competition Game",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/gd4Ark/star-battle",
     "credit": "gd4Ark",
     "creatorBio": "Built by gd4Ark for the 2017 Abu Dhabi WorldSkills Competition using vanilla ES6 and Canvas.",
-    "description": "A top down spaceship shooter where fuel drains constantly, so the pressure never lets up. Shoot enemies for points, grab fuel bottles to stay alive, and watch out for friendly ships, hitting one costs you points instead of earning them.",
-    "howToPlay": "W/A/S/D moves your ship, space fires. Fuel starts at 15 and drops by 1 every second; collect fuel bottles to refill it, up to a maximum of 30. Hitting enemies scores points, hitting friendlies costs points, and running out of fuel ends the game. P pauses, M mutes."
+    "description": "Star Battle was built by the developer gd4Ark as an entry for the 2017 WorldSkills Competition in Abu Dhabi, an international skills olympics where young developers build working software under real time pressure to demonstrate their craft, and it shows in how tightly scoped and complete the whole thing feels for a top down shooter written in vanilla ES6 and canvas with no external game framework underneath it. The fuel system is what actually separates it from a generic shooter: fuel drains constantly whether or not you're doing anything, which means the game is quietly always pushing you to keep moving and engaging rather than letting you sit safely in a corner picking off distant enemies. Friendly ships wandering the same field add a second layer of pressure, since the fastest, greediest way to rack up points, spraying fire at everything that moves, is also the surest way to torch your own score if you're not paying attention to what you're shooting at.",
+    "howToPlay": "W/A/S/D moves your ship, space fires. Fuel starts at 15 and drops by 1 every second; collect fuel bottles to refill it, up to a maximum of 30. Hitting enemies scores points, hitting friendlies costs points, and running out of fuel ends the game. P pauses, M mutes.",
+    "tips": "Treat fuel bottles as a higher priority than any single enemy kill, since running out ends the game outright while a missed shot just costs you a few points. Learn to tell friendly and enemy ships apart at a glance before you start firing reflexively, since the points lost to a friendly hit are steeper than the points gained from an enemy kill, making trigger discipline worth more than raw accuracy. Keep moving even when no threats are immediately visible, both to conserve your position for dodging and because standing still does nothing to slow the constant fuel drain. When fuel gets low, prioritize survival and fuel collection over scoring for a stretch; a cautious lull that keeps you alive is worth more than a risky streak that ends your run early."
   },
   {
     "id": "classic-pool",
@@ -119,13 +165,20 @@
     "path": "games/files/classic-pool/index.html",
     "thumb": "games/thumbs/classic-pool.jpg",
     "genre": "Sports",
-    "tags": ["Sports", "Billiards", "Simulation", "Two Player", "Single Player"],
+    "tags": [
+      "Sports",
+      "Billiards",
+      "Simulation",
+      "Two Player",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/henshmi/Classic-Pool-Game",
     "credit": "Chen Shmilovich (music: Kevin MacLeod, CC BY 3.0)",
     "creatorBio": "Chen Shmilovich's first JavaScript game project, a full 8 ball pool simulation with AI opponents.",
-    "description": "A full 8 ball pool simulation with real physics, complete with an AI opponent at three difficulty levels for when you don't have a second player handy.",
-    "howToPlay": "Move the mouse to aim, hold W to increase shot power and S to decrease it, then left click to take your shot. Press Esc to return to the menu. Play against a friend on the same keyboard or against the built in AI."
+    "description": "Chen Shmilovich built this as a first real JavaScript game project, and it's a surprisingly complete simulation for that: proper ball-to-ball physics, spin and momentum that carries realistically between shots, and an AI opponent tuned across three difficulty levels rather than a single fixed skill level. Eight ball itself traces back to pool halls in the United States in the early 1900s, evolving out of earlier billiards variants into the specific stripes-versus-solids format that's now the standard most people picture when they hear the word pool. What this version gets right that a lot of browser pool games don't bother with is the small stuff: the cue ball's spin actually affects how it behaves after contact, a scratch genuinely costs you position rather than just resetting the ball, and the physics engine underneath the whole table is the same one doing the work whether you're playing a friend locally or the built in AI.",
+    "howToPlay": "Move the mouse to aim, hold W to increase shot power and S to decrease it, then left click to take your shot. Press Esc to return to the menu. Play against a friend on the same keyboard or against the built in AI.",
+    "tips": "Think one shot ahead before you take the current one; where the cue ball ends up after contact matters more to winning the game than sinking any single ball does, since a great shot that leaves you with no follow up shot just hands the table back to your opponent. Aim slightly off-center on the cue ball to add spin when you need the cue ball to curve away from a straight line after contact, but keep it subtle since too much spin is exactly what causes an unintended scratch. Take the lowest-risk shot available when nothing on the table lines up cleanly, rather than forcing a low-percentage long shot that likely scratches; a safe, boring turn that keeps your opponent stuck is often better than a spectacular miss. Watch your angle into the pocket, not just the distance, since a ball can be an easy straight shot or a near-impossible cut depending entirely on the angle it's approached from."
   },
   {
     "id": "bullet-hell",
@@ -135,13 +188,19 @@
     "path": "games/files/bullet-hell/index.html",
     "thumb": "games/thumbs/bullet-hell.png",
     "genre": "Shooter",
-    "tags": ["Shooter", "Bullet Hell", "Arcade", "Single Player"],
+    "tags": [
+      "Shooter",
+      "Bullet Hell",
+      "Arcade",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/selenebun/bullethell",
     "credit": "selenebun",
     "creatorBio": "A p5.js bullet hell shooter by selenebun, with both arrow key and WASD control schemes.",
-    "description": "A dense, screen filling bullet hell shooter. Enemies flood the screen with bullet patterns, and surviving comes down to precise movement and knowing exactly when to spend your limited bombs.",
-    "howToPlay": "Arrow keys move (or WASD), Z fires (or B), X slows down time for precision dodging (or N), and C uses a screen clearing bomb (or M). Press P to pause."
+    "description": "The bullet hell genre, known in Japan as danmaku, meaning barrage or curtain fire, grew out of Japanese arcade shoot-em-ups in the 1990s, with developers like Cave and later Toho's Touhou Project pushing the screen-filling bullet pattern into its own recognizable style once hardware could finally push hundreds of projectiles at once without slowing down. The appeal is a strange kind of calm inside visible chaos: a screen that looks like an impossible wall of bullets almost always has a real, learnable gap running through it, and the entire skill of the genre is training your eye to see that gap instead of panicking at the noise. This version keeps every core piece of that formula: a small, precise hitbox hidden inside a much larger sprite, a slow-motion mechanic for threading tight gaps under pressure, and a limited-use bomb that clears the screen when a pattern gets past what's survivable.",
+    "howToPlay": "Arrow keys move (or WASD), Z fires (or B), X slows down time for precision dodging (or N), and C uses a screen clearing bomb (or M). Press P to pause.",
+    "tips": "Remember that your actual hitbox is much smaller than your ship's sprite suggests, generally just a few pixels at the center; bullet hell games are built around that gap between how big you look and how big you actually are, so don't dodge patterns as if your whole sprite needs to fit through a gap. Use the slow-motion ability specifically for threading tight, precise gaps rather than as a general panic button, since it's a limited resource and burning it too early leaves you without it for the pattern that actually needed it. Save your bomb for a genuine wall you can't see a gap through rather than using it reactively the moment things look scary; recognizing a truly unsurvivable pattern versus a merely intimidating one is most of the skill in this genre. Move in small deliberate steps rather than large sweeping ones, since overcorrecting into a new bullet is a far more common death than standing still too long."
   },
   {
     "id": "minesweeper",
@@ -151,13 +210,19 @@
     "path": "games/files/minesweeper/index.html",
     "thumb": "games/thumbs/minesweeper.png",
     "genre": "Puzzle",
-    "tags": ["Puzzle", "Minesweeper", "Logic", "Single Player"],
+    "tags": [
+      "Puzzle",
+      "Minesweeper",
+      "Logic",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/muan/emoji-minesweeper",
     "credit": "Muan (Mu-An Chiou)",
     "creatorBio": "Built by Muan (Mu-An Chiou) as a playful, emoji-first take on the classic minesweeper formula.",
-    "description": "A minesweeper clone that swaps the usual numbers and flags for emoji. Clear every safe tile without triggering one of the hidden bombs, using the numbers that do appear as clues to how many bombs are touching each tile.",
-    "howToPlay": "Left click a tile to reveal it. Right click a tile to flag it as a suspected bomb. Numbers show how many bombs are in the eight tiles surrounding it. Clear every non-bomb tile to win."
+    "description": "Minesweeper's lineage runs back to a string of mine-avoidance logic games from the 1960s and 70s, but the version everyone actually remembers is the one Microsoft bundled with Windows starting in 1990, quietly used for decades to teach an entire generation of office workers how to use a mouse before it became one of the most recognizable logic puzzles in software history. The rule set is minimal: click a tile to reveal either a bomb or a number telling you how many bombs are touching it, and use that number to work out which neighboring tiles are safe. This version keeps that exact mechanic intact but reskins every visual element with emoji, swapping the classic flag for a construction cone and the numbers for colorful little icons, a lighthearted redressing of a game whose actual logic hasn't needed to change in over thirty years because the underlying puzzle was already close to perfect.",
+    "howToPlay": "Left click a tile to reveal it. Right click a tile to flag it as a suspected bomb. Numbers show how many bombs are in the eight tiles surrounding it. Clear every non-bomb tile to win.",
+    "tips": "Work outward from the numbers you're most confident about rather than the center of the board; a 1 with only one unrevealed neighbor tells you everything you need to know instantly, while a 4 or 5 surrounded by many unknowns needs more information before it's safe to act on. Flag a tile the moment you're certain it's a bomb, even before you're ready to click anything else nearby, since a flagged tile protects you from an accidental misclick later in the game. Corner and edge tiles have fewer neighbors than tiles in the open middle of the board, which makes their numbers logically stronger and usually the best place to look when you're stuck. If you're ever forced into a genuine 50/50 guess with no logical path forward, guess in the area with more open, already-revealed space around it, since it gives you more information to work with if you're right."
   },
   {
     "id": "memory-match",
@@ -167,13 +232,19 @@
     "path": "games/files/memory-match/index.html",
     "thumb": "games/thumbs/memory-match.png",
     "genre": "Puzzle",
-    "tags": ["Puzzle", "Memory", "Cards", "Single Player"],
+    "tags": [
+      "Puzzle",
+      "Memory",
+      "Cards",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/mmenavas/memory-game",
     "credit": "mmenavas",
     "creatorBio": "Built by mmenavas as a plain HTML5, CSS3, and JavaScript project, no frameworks involved.",
-    "description": "A classic memory matching game with a fruit photography twist. Flip two cards at a time, remember what you saw, and clear the board by finding every matching pair.",
-    "howToPlay": "Click any face-down card to flip it, then click a second card. If they match, both stay face up. If not, they flip back over. Clear the whole board in as few flips as possible."
+    "description": "The concentration and pairs-matching format goes back to a card game usually just called Concentration or Pelmanism, which was already an established parlor game by the early 20th century built entirely around one skill: holding a mental map of things you've briefly seen and forgetting nothing. This version swaps the traditional card backs for close-up fruit photography, but the underlying test is exactly the same one that's been played with physical cards for a hundred years, just running in a browser with a difficulty selector attached. What makes it work as a genuine test of memory rather than just a click-through exercise is the setup: every wrong pair costs you a move, and the layout only grows kinder to guessing as you play worse, which means actually building a mental map as you go is rewarded far more than clicking around hoping to get lucky.",
+    "howToPlay": "Click any face-down card to flip it, then click a second card. If they match, both stay face up. If not, they flip back over. Clear the whole board in as few flips as possible.",
+    "tips": "Build a genuine mental map as you flip cards rather than relying on luck; even a wrong guess reveals two real pieces of information you should hold onto for later, so treat every flip as data gathering, not just a swing at a match. Prioritize matching the pair you just revealed over exploring a new unknown tile, since a freshly seen pair is the one piece of certain information you have and it decays the moment you get distracted chasing something else. Work through the board in a consistent order, left to right and top to bottom, rather than jumping around randomly, since a systematic scan is much easier to hold in memory than a scattered one. On higher difficulties with more cards, focus on memorizing distinctive fruits first since they're easier to recall than similar looking ones, and save the trickier lookalikes for once the board has thinned out."
   },
   {
     "id": "connect-four",
@@ -183,13 +254,18 @@
     "path": "games/files/connect-four/index.html",
     "thumb": "games/thumbs/connect-four.png",
     "genre": "Board",
-    "tags": ["Board", "Strategy", "Two Player"],
+    "tags": [
+      "Board",
+      "Strategy",
+      "Two Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/bryanbraun/connect-four",
     "credit": "Bryan Braun",
     "creatorBio": "Built by Bryan Braun as a clean, dependency light implementation of the classic board game.",
-    "description": "The classic two player drop-and-connect game. Take turns dropping colored pieces down a seven column grid, and be the first to line up four of your own pieces in a row, horizontally, vertically, or diagonally.",
-    "howToPlay": "Click any column to drop your piece into the lowest open slot in that column. Players alternate turns. First to connect four of their own pieces in a row, in any direction, wins."
+    "description": "Connect Four was patented and released by Milton Bradley in 1974, and it's held up remarkably well for a game with rules this simple: drop a piece into any column, let gravity pull it to the lowest open slot, and try to line up four in a row before your opponent does, horizontally, vertically, or diagonally. What makes it more interesting than it looks on the surface is that the game was mathematically solved in 1988 by researcher James Dow Allen and independently by Victor Allis, proving that the first player can always force a win with perfect play by starting in the center column, a fact that turns the two-player version into a genuine strategic puzzle once you know it rather than a coin flip. This version keeps the classic two-player format exactly as designed, alternating turns on a standard seven-wide, six-tall grid.",
+    "howToPlay": "Click any column to drop your piece into the lowest open slot in that column. Players alternate turns. First to connect four of their own pieces in a row, in any direction, wins.",
+    "tips": "Take the center column first if you're playing first, since it's involved in more possible four-in-a-row combinations than any other column and is the foundation of the proven winning strategy for the first player. Always look one move ahead for a double threat, two different ways to win on your next turn that your opponent can't block both of at once, since that's usually how games are actually decided rather than through a single obvious move. Pay close attention to what you're setting up for your opponent every time you drop a piece, since a move that looks safe can hand them a winning spot directly above it on their very next turn. Playing defensively by blocking your opponent's three-in-a-row is necessary but not sufficient; the strongest players are usually building their own threat at the same time they're blocking, not purely reacting."
   },
   {
     "id": "checkers",
@@ -199,13 +275,18 @@
     "path": "games/files/checkers/index.html",
     "thumb": "games/thumbs/checkers.png",
     "genre": "Board",
-    "tags": ["Board", "Strategy", "Two Player"],
+    "tags": [
+      "Board",
+      "Strategy",
+      "Two Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/gartz/draughtsjs",
     "credit": "gartz",
     "creatorBio": "Built by developer gartz as a complete draughts implementation in vanilla JavaScript, HTML, and CSS.",
-    "description": "A full implementation of checkers, also known as draughts, for two players on one keyboard, complete with forced captures, king promotion, and configurable house rules like backward attacks and flying kings.",
-    "howToPlay": "Click a piece to select it, then click a highlighted square to move it. Jump over an opponent's piece to capture it. Reach the far row to crown a piece as a king. Capture all of your opponent's pieces, or leave them with no legal moves, to win."
+    "description": "Draughts, known as checkers in North America, has roots stretching back thousands of years to earlier board games played on similar grids across the ancient Mediterranean and Middle East, though the specific modern rules of diagonal moves and forced jumps solidified in Europe centuries ago and have barely changed since. It's deceptively simple on the surface, just diagonal moves and mandatory captures, but the game was fully solved by computer scientists at the University of Alberta in 2007 after nearly two decades of computation, proving that perfect play by both sides always ends in a draw, a result that took a dedicated research team using serious computing power to actually confirm. This version implements the standard 8x8 checkered board with the classic ruleset, including forced captures and the crowning of pieces that reach the far row, giving them the ability to move both forward and backward.",
+    "howToPlay": "Click a piece to select it, then click a highlighted square to move it. Jump over an opponent's piece to capture it. Reach the far row to crown a piece as a king. Capture all of your opponent's pieces, or leave them with no legal moves, to win.",
+    "tips": "Control the center of the board rather than the edges early on, since center pieces have more possible diagonal moves available and pressure the whole board, while edge pieces are only ever one direction of attack. Avoid moving your back row pieces early in the game if you can help it, since they're what stops your opponent from reaching your crowning row and getting a king of their own. Look for forced captures before you move, since jumps are mandatory in standard rules, meaning you can sometimes bait your opponent into a bad position simply by offering a piece that forces a capture into a worse spot. Trading pieces is usually good for you when you're already ahead in material, since fewer pieces on the board make it harder for the losing side to create the complications they'd need to come back."
   },
   {
     "id": "hangman",
@@ -215,13 +296,18 @@
     "path": "games/files/hangman/index.html",
     "thumb": "games/thumbs/hangman.png",
     "genre": "Word",
-    "tags": ["Word", "Puzzle", "Single Player"],
+    "tags": [
+      "Word",
+      "Puzzle",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/abdoutech19/hangman-game",
     "credit": "abdoutech19",
     "creatorBio": "Built by abdoutech19 as a responsive hangman game with GSAP and canvas animations.",
-    "description": "The classic word guessing game with a category twist: pick from categories like food, sports, and instruments, then guess the hidden word one letter at a time before the drawing is complete.",
-    "howToPlay": "Pick a category and difficulty, then guess letters one at a time. Correct guesses fill in the word; wrong guesses bring you one step closer to a completed drawing. Guess the whole word before you run out of tries."
+    "description": "Hangman is one of the oldest word games still played essentially unchanged, with references to versions of it going back to Victorian England under names like Gallows, though nobody knows exactly who invented it since it spread as an oral parlor game long before anyone thought to write the rules down. The core tension has never needed updating: you're guessing letters one at a time against a shrinking number of wrong guesses, racing to complete a hidden word before you run out of chances. This version dresses that same basic game up with a fully illustrated night time mountain scene and a rope-and-gallows animation that reacts to every wrong guess, along with category and difficulty selection so you can steer the word list toward something you actually have a shot at solving.",
+    "howToPlay": "Pick a category and difficulty, then guess letters one at a time. Correct guesses fill in the word; wrong guesses bring you one step closer to a completed drawing. Guess the whole word before you run out of tries.",
+    "tips": "Start with the most common letters in English before anything else: E, T, A, O, I, and N account for a huge share of letters in any English word, so guessing them first almost always reveals something useful even before you have a real read on the word. Guess vowels early since knowing where they fall tells you a lot about a word's structure and syllable count, which narrows down the possibilities dramatically compared to guessing consonants blind. Pay attention to word length and category together; a short word in the animals category rules out a huge number of possibilities compared to guessing with no context at all. Save uncommon letters like Q, X, and Z for later in a guess, since they show up rarely enough that spending an early guess on one is usually a wasted turn unless the revealed pattern already strongly suggests one."
   },
   {
     "id": "word-search",
@@ -231,13 +317,18 @@
     "path": "games/files/word-search/index.html",
     "thumb": "games/thumbs/word-search.png",
     "genre": "Word",
-    "tags": ["Word", "Puzzle", "Single Player"],
+    "tags": [
+      "Word",
+      "Puzzle",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/bunkat/wordfind",
     "credit": "bunkat, with contributions from Lucas-C",
     "creatorBio": "The wordfind.js library and game were built by developer bunkat, with contributions from Lucas-C.",
-    "description": "A word search puzzle generator and player in one: it builds a fresh grid from a word list, hides them forward, backward, and diagonally, and even offers a solve button if you get stuck.",
-    "howToPlay": "Find every listed word hidden in the letter grid; words can run in any direction, including backward and diagonally. Click and drag across a word to mark it found. Use Solve Puzzle if you want to see the answers."
+    "description": "Word search puzzles were invented in 1968 by Norman E. Gibat, who published the first one in a newspaper in Norman, Oklahoma as a form of local wordplay entertainment, and the format spread into puzzle books and newspapers worldwide almost immediately after because it required no special equipment beyond a grid of letters and a list of words to find. This version, built on the WordFind.js library, generates a fresh letter grid around whatever secret word or word list you configure, hiding entries in any direction including backwards and diagonally, the same way a well made hand-drawn puzzle would rather than only running words left to right. Because the grid generation is genuinely randomized rather than pulled from a fixed puzzle bank, no two attempts lay the words out the same way, which keeps the searching itself the actual challenge instead of memorization.",
+    "howToPlay": "Find every listed word hidden in the letter grid; words can run in any direction, including backward and diagonally. Click and drag across a word to mark it found. Use Solve Puzzle if you want to see the answers.",
+    "tips": "Scan the grid systematically, row by row or column by column, rather than letting your eyes wander randomly across the whole board, since a consistent scanning pattern is much less likely to miss a word than a scattered search. Look for uncommon letters in your target words first, like a Q, J, X, or Z, since they stand out visually against a field of common letters and narrow your search area immediately once you spot one. Check all eight directions around any promising letter you find, including diagonals and backwards, rather than assuming a word only runs left to right, since puzzles like this one deliberately hide entries in every direction. Cross words off your list the moment you find them rather than leaving them for later, since a shrinking list keeps your remaining search focused instead of re-scanning for words you've already located."
   },
   {
     "id": "reaction-time",
@@ -247,13 +338,18 @@
     "path": "games/files/reaction-time/index.html",
     "thumb": "games/thumbs/reaction-time.png",
     "genre": "Skill",
-    "tags": ["Skill", "Reflex", "Single Player"],
+    "tags": [
+      "Skill",
+      "Reflex",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/himanshusapkota/Reaction-Time-Test",
     "credit": "himanshusapkota",
     "creatorBio": "Built by himanshusapkota as a small, focused reflex-testing web app.",
-    "description": "A simple, honest test of how fast your reflexes really are. Wait for the box to turn green, then click as fast as you can. Click too early and you'll have to try again.",
-    "howToPlay": "Click Start, then wait. After a random delay, the box turns green. Click it as fast as you can. Your reaction time is measured in milliseconds. Clicking before it turns green counts as a false start."
+    "description": "Reaction time benchmarks like this one are a genuine, if informal, psychology tool, measuring simple visual reaction time, the delay between a stimulus appearing and a response to it, which researchers have studied since the 19th century as one of the most basic measures of how a nervous system processes information. The average adult typically lands somewhere between roughly 200 and 300 milliseconds on a simple visual test like this one, though the number moves around with fatigue, caffeine, age, and honestly just how much practice you've had clicking the same box. This version keeps the test as clean as a lab version: a random delay before the box changes color removes any ability to predict the timing, and clicking too early resets the attempt entirely, which keeps the whole thing an honest measurement rather than a guessing game you can learn to cheat.",
+    "howToPlay": "Click Start, then wait. After a random delay, the box turns green. Click it as fast as you can. Your reaction time is measured in milliseconds. Clicking before it turns green counts as a false start.",
+    "tips": "Resist the urge to anticipate the color change and click preemptively; the random delay is specifically designed to prevent that, and an early click resets your attempt rather than rewarding a lucky guess. Rest your finger or cursor lightly over the click target rather than approaching it fresh each time, since even a small amount of travel time adds directly onto your measured reaction. Run the test several times in a row rather than judging yourself on a single attempt, since reaction time naturally varies attempt to attempt and a personal average tells you far more than any single number. Fatigue and distraction measurably slow reaction time, so if you're testing yourself seriously rather than just for fun, try a few attempts in a genuinely quiet moment rather than mid multitasking."
   },
   {
     "id": "lights-out",
@@ -263,13 +359,18 @@
     "path": "games/files/lights-out/index.html",
     "thumb": "games/thumbs/lights-out.png",
     "genre": "Puzzle",
-    "tags": ["Puzzle", "Logic", "Single Player"],
+    "tags": [
+      "Puzzle",
+      "Logic",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/sepandhaghighi/lightsout",
     "credit": "Sepand Haghighi",
     "creatorBio": "Built by Sepand Haghighi as a polished take on the classic Lights Out puzzle.",
-    "description": "A grid of lights, each one wired to its neighbors. Pressing a light toggles it and every light directly next to it. The goal is to figure out the right sequence of presses to turn every light off.",
-    "howToPlay": "Click any lit tile to toggle it, along with the tiles directly above, below, left, and right of it. Turn off every light on the board using as few presses as possible. Use the Hint button if you get stuck."
+    "description": "Lights Out began life as a physical electronic puzzle toy released by Tiger Electronics in 1995, a small handheld grid of buttons that lit up and toggled their neighbors, and it turned out to hide something more mathematically interesting underneath the toy packaging: the entire puzzle can be modeled as a system of linear equations over binary values, meaning every solvable layout can, in principle, be solved by a computer using nothing but matrix math. That doesn't make it any less satisfying to solve by hand, since the same property that makes it solvable by algebra also makes it a genuinely good puzzle for humans, because every move has a clean, fully deterministic effect rather than any randomness or hidden information. This version reproduces the original 5x5 grid faithfully, including the toggle-your-neighbors mechanic that makes an obvious-looking single move ripple out into changes across the whole board.",
+    "howToPlay": "Click any lit tile to toggle it, along with the tiles directly above, below, left, and right of it. Turn off every light on the board using as few presses as possible. Use the Hint button if you get stuck.",
+    "tips": "Work through the puzzle one row at a time starting from the top, using only the row directly below a still-lit button in the top row to turn it off, then move down; this row-by-row method, sometimes called the chase-the-lights approach, reliably solves most layouts without needing to track the whole board's state in your head at once. Remember that pressing any button toggles its own light along with all direct neighbors above, below, left, and right of it, never diagonals, so plan your presses around that specific plus-shaped pattern rather than assuming a wider effect. If you get stuck partway through, it's usually faster to reset and restart the row-by-row method cleanly than to try to patch a specific mistake, since the ripple effects compound quickly once a few presses are out of sequence. Some starting layouts are mathematically unsolvable by design, so if a puzzle genuinely won't clear no matter the approach, that's a property of the specific scramble, not a sign anything's being done wrong."
   },
   {
     "id": "fifteen-puzzle",
@@ -279,13 +380,18 @@
     "path": "games/files/fifteen-puzzle/index.html",
     "thumb": "games/thumbs/fifteen-puzzle.png",
     "genre": "Puzzle",
-    "tags": ["Puzzle", "Sliding Tiles", "Single Player"],
+    "tags": [
+      "Puzzle",
+      "Sliding Tiles",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/arnisritins/15-Puzzle",
     "credit": "Arnis Ritins",
     "creatorBio": "Built by Arnis Ritins as a lightweight, dependency-free implementation of the classic 15 puzzle.",
-    "description": "The sliding tile classic. Fifteen numbered tiles sit in a 4x4 frame with one gap, and the goal is to slide tiles around until they're back in numerical order.",
-    "howToPlay": "Click any tile adjacent to the empty space to slide it into the gap. Rearrange the tiles into numerical order, left to right, top to bottom, with the empty space ending in the bottom right corner."
+    "description": "The 15 puzzle was invented in the 1870s, generally credited to postal clerk Noyes Chapman, and it became a genuine national craze in the United States and Europe by 1880, largely thanks to puzzle maker Sam Loyd, who offered a cash prize for solving a specific configuration that was later mathematically proven to be impossible, a hoax that only made the puzzle more famous. The underlying math turns out to be exactly why that prize was safe: exactly half of all possible tile arrangements can never be solved back to order no matter how many moves you make, a property tied to whether a given shuffle represents an even or odd permutation, which is a small but genuine piece of real group theory hiding inside a children's toy. This version handles that fairly by only ever generating shuffles that are actually solvable, and includes both a scramble and a full auto-solve so you can watch a correct solution path if you get stuck.",
+    "howToPlay": "Click any tile adjacent to the empty space to slide it into the gap. Rearrange the tiles into numerical order, left to right, top to bottom, with the empty space ending in the bottom right corner.",
+    "tips": "Solve the top row first, then the left column, locking each tile into its final position before moving on to the next, rather than trying to arrange the whole board at once; this row-and-column method is the standard approach for a reason. The last two tiles in any row or column are the tricky part, since placing the second-to-last tile correctly often means temporarily leaving the last one out of place until you can rotate both into their final spots together. Work on the bottom-right 2x2 block last, since it's the only section that doesn't have a full row or column boundary to lock against, and needs a slightly different final maneuver than the rest of the puzzle. If you get stuck partway through, the built in solve button will show a valid solution path, which is worth watching once just to see the row-and-column method play out in practice."
   },
   {
     "id": "snake",
@@ -295,13 +401,18 @@
     "path": "games/files/snake/index.html",
     "thumb": "games/thumbs/snake.png",
     "genre": "Arcade",
-    "tags": ["Arcade", "Retro", "Single Player"],
+    "tags": [
+      "Arcade",
+      "Retro",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/maryrosecook/retro-games",
     "credit": "Mary Rose Cook",
     "creatorBio": "Built by Mary Rose Cook as practice material for her game programming workshop at Strange Loop 2014.",
-    "description": "A minimal, skeletal version of the arcade classic. Guide a growing snake around the board, eating food to grow longer, while avoiding the walls and your own tail.",
-    "howToPlay": "Use the arrow keys to steer. Eating food makes the snake grow by one block. Running into a wall or into your own tail ends the game."
+    "description": "Snake's arcade lineage traces back to Blockade, a 1976 Gremlin Industries arcade game, but the version most people actually picture came decades later, bundled onto the Nokia 6110 in 1997 and effectively introduced an entire generation to mobile gaming before smartphones existed. This particular build was written by Mary Rose Cook as teaching material for her game programming workshop at Strange Loop 2014, deliberately stripped down to its most essential parts: a snake that grows by one block per piece of food, walls that end the game on contact, and a tail that becomes your own worst obstacle the longer you survive. That simplicity is exactly what makes it a genuinely good teaching example and a genuinely good time waster in equal measure, since there's no system to learn beyond the one rule that matters, don't run into yourself, and the challenge scales entirely from your own growing length rather than any external difficulty setting.",
+    "howToPlay": "Use the arrow keys to steer. Eating food makes the snake grow by one block. Running into a wall or into your own tail ends the game.",
+    "tips": "Hug the outer walls when you can, since it keeps the center of the board open as safe space to maneuver into as your tail grows longer and the board gets more crowded. Think several moves ahead about where your tail will be, not just where your head is going, since the real danger late in a run is boxing yourself into a space too small for your own length to fit through. Avoid tight spirals or loops early in the game even though they feel efficient, since they create a cramped area that becomes genuinely dangerous once your snake is long enough to fill it. When food appears in a risky spot near your tail, it's often better to let one piece go and wait for a safer one rather than forcing a path that leaves you with no escape route afterward."
   },
   {
     "id": "lunar-lander",
@@ -311,13 +422,19 @@
     "path": "games/files/lunar-lander/index.html",
     "thumb": "games/thumbs/lunar-lander.png",
     "genre": "Arcade",
-    "tags": ["Arcade", "Physics", "Retro", "Single Player"],
+    "tags": [
+      "Arcade",
+      "Physics",
+      "Retro",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/maryrosecook/retro-games",
     "credit": "Mary Rose Cook",
     "creatorBio": "Built by Mary Rose Cook as practice material for her game programming workshop at Strange Loop 2014.",
-    "description": "A physics driven landing challenge inspired by the 1979 arcade classic. Fight gravity and momentum to bring your lander down safely on the landing pad below, rather than crashing into it.",
-    "howToPlay": "Use the arrow keys to fire your thrusters and rotate the lander. Manage your speed and angle carefully. Touch down gently on the landing pad to succeed; coming in too fast or at too steep an angle ends in a crash."
+    "description": "Lunar Lander's history runs back further than most arcade games: the core idea started as a mainframe game called Rocket, written in 1969 by Jim Storer while he was still in high school, directly inspired by the real physics and telemetry of NASA's actual Apollo lunar module simulators from the same era. That lineage is why the genre has always cared about real momentum and gravity rather than arcade-style instant stops, and Atari's 1979 vector arcade version cemented the format that's been rebuilt countless times since: rotate, thrust, and fight momentum you can never fully cancel, trying to set down gently on a landing pad rather than crash into the terrain around it. This version keeps that same physics-first feel, generating a fresh random mountain range and landing pad on every attempt, and it only counts a landing as successful if you touch down near-vertical and under control, exactly the constraint a real lunar landing would actually have.",
+    "howToPlay": "Use the arrow keys to fire your thrusters and rotate the lander. Manage your speed and angle carefully. Touch down gently on the landing pad to succeed; coming in too fast or at too steep an angle ends in a crash.",
+    "tips": "Start braking well before you think you need to, since thrust takes a moment to actually counteract your fall and momentum in a lander never bleeds off on its own the way it would with air resistance. Keep your rotation as close to vertical as you can throughout the descent rather than correcting it only at the last second, since a landing pad only counts a touchdown within a fairly narrow angle window. Use short thrust taps rather than holding thrust continuously, since it's much easier to fine tune your descent speed with small corrections than to fight an overcorrection from holding thrust too long. Watch your horizontal drift as closely as your vertical speed, since a lander that's falling slowly but sliding sideways will still miss a narrow landing pad; canceling sideways momentum early is often the harder half of a clean landing."
   },
   {
     "id": "typing-test",
@@ -327,13 +444,18 @@
     "path": "games/files/typing-test/index.html",
     "thumb": "games/thumbs/typing-test.png",
     "genre": "Skill",
-    "tags": ["Skill", "Typing", "Single Player"],
+    "tags": [
+      "Skill",
+      "Typing",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/shreyagarwal13/typing-speed-test",
     "credit": "Shreya Agarwal",
     "creatorBio": "Built by Shreya Agarwal using plain HTML5, CSS, and JavaScript.",
-    "description": "A straightforward typing benchmark. Type the words shown as accurately and quickly as you can before the timer runs out, choosing your own time limit and difficulty.",
-    "howToPlay": "Pick a time limit (30 or 60 seconds) and a difficulty, then start typing the displayed words into the box. Your words-per-minute score updates as you go. Try to beat your own best."
+    "description": "Typing speed tests as a format go back to the earliest days of typewriters in the late 1800s, when typing competitions were genuinely popular public events, and the words per minute metric that's still used today became standardized decades ago as the simplest way to compare typing speed across different people and different tests. This version keeps that same core measurement, timing how many words you can accurately type from a displayed list within a chosen time window, with adjustable difficulty and duration so you can test yourself against simple common words or push into a harder word list once the easy version stops being a real challenge. What the test actually measures is a mix of two separate skills, raw finger speed and error correction, since typing fast but sloppy generally scores worse than typing slightly slower but clean once accuracy is factored into a real result.",
+    "howToPlay": "Pick a time limit (30 or 60 seconds) and a difficulty, then start typing the displayed words into the box. Your words-per-minute score updates as you go. Try to beat your own best.",
+    "tips": "Prioritize accuracy over raw speed, especially early on, since a single typo you have to notice and correct usually costs far more time than typing that one word slightly slower and correctly the first time. Keep your fingers resting on the home row, the middle letter row of the keyboard, between words rather than reaching fresh for every key, since that resting position is what touch typing is built around and cuts down on wasted finger travel. Read a few words ahead of what you're currently typing rather than one word at a time, since your fingers can be executing the current word while your eyes are already parsing the next one, which is where real speed actually comes from. Practice consistently rather than in single long sessions; typing speed improves faster from many short regular attempts than from occasional long ones, the same way most motor skills do."
   },
   {
     "id": "pong",
@@ -343,13 +465,20 @@
     "path": "games/files/pong/index.html",
     "thumb": "games/thumbs/pong.png",
     "genre": "Arcade",
-    "tags": ["Arcade", "Retro", "Classic", "Two Player", "Single Player"],
+    "tags": [
+      "Arcade",
+      "Retro",
+      "Classic",
+      "Two Player",
+      "Single Player"
+    ],
     "license": "MIT",
     "source": "https://github.com/jakesgordon/javascript-pong",
     "credit": "Jake Gordon",
     "creatorBio": "Jake Gordon built this Pong clone as a tutorial series on JavaScript game development fundamentals, the same author behind JS Racer.",
-    "description": "The original two paddle classic, rebuilt in vanilla JavaScript with real ball physics on a canvas. Play solo against the computer, go head to head with a friend, or just watch the AI play itself.",
-    "howToPlay": "Press 1 for a single player game, 2 for two player, or 0 to watch the computer play itself. Player 1 moves with Q and A, Player 2 moves with P and L. Esc abandons a game in progress."
+    "description": "Pong is arguably the single game most responsible for the arcade industry existing at all: built by Allan Alcorn at Atari in 1972 as what was originally meant to be a training exercise, it became the company's first hit after a test cabinet at a bar in Sunnyvale, California reportedly jammed full of quarters within its first day and had to be pulled for repair. That accidental success effectively proved that people would pay to play video games in public, kickstarting an entire industry that didn't really exist as a commercial category before it. This version, built by Jake Gordon as a tutorial series on JavaScript game fundamentals, keeps the original's entire design intact: two paddles, one ball that speeds up the longer a rally continues, and the same tense back and forth that made a genuinely tiny amount of code into a cultural moment fifty years ago.",
+    "howToPlay": "Press 1 for a single player game, 2 for two player, or 0 to watch the computer play itself. Player 1 moves with Q and A, Player 2 moves with P and L. Esc abandons a game in progress.",
+    "tips": "Move to meet the ball early rather than waiting until it's nearly at your paddle, since a rushed last-second reaction is far more likely to miss than a paddle that's already positioned and waiting. Hit the ball with the edges of your paddle rather than dead center whenever you want to change its angle, since edge contact redirects the ball more sharply and can catch an opponent who's only tracking the ball's straight-line trajectory. Remember the ball speeds up the longer a rally continues, so a long exchange rewards staying calm and centered rather than lunging, since a single late reaction near the end of a fast rally is usually what decides the point. Against the built-in AI, watch for patterns in how it tracks the ball rather than assuming it plays identically every time; different difficulty levels react with different speed and accuracy, and probing that early tells you how aggressively you can play."
   },
   {
     "id": "tic-tac-toe",
@@ -359,12 +488,18 @@
     "path": "games/files/tic-tac-toe/index.html",
     "thumb": "games/thumbs/tic-tac-toe.png",
     "genre": "Board",
-    "tags": ["Board", "Strategy", "Single Player", "Classic"],
+    "tags": [
+      "Board",
+      "Strategy",
+      "Single Player",
+      "Classic"
+    ],
     "license": "MIT",
     "source": "https://github.com/Mostafa-Samir/Tic-Tac-Toe-AI",
     "credit": "Mostafa Samir",
     "creatorBio": "Mostafa Samir built this as a demonstration of the minimax algorithm, the standard approach behind an unbeatable tic-tac-toe AI.",
-    "description": "Classic tic-tac-toe against a computer opponent that plays perfectly at its hardest setting. Choose from three AI strengths and try to force at least a draw.",
-    "howToPlay": "Pick a difficulty (Blind, Novice, or Master), then click any empty square to place your mark. Get three in a row before the computer does, or hold out for a draw against Master."
+    "description": "Tic-tac-toe's lineage goes back thousands of years, with grid based three-in-a-row games appearing in ancient Egypt and later in Roman ruins as a game called Terni Lapilli, long before it settled into the exact three by three format everyone learns as a child today. It's also one of the cleanest examples in all of game theory of what's called a solved game: with perfect play from both sides, tic-tac-toe always ends in a draw, a fact simple enough to prove by hand that it's a standard first exercise for anyone learning the minimax algorithm, the same core technique behind chess engines and most other adversarial game AI. This version leans directly into that history, built by Mostafa Samir specifically as a demonstration of minimax in action, with three difficulty levels that scale from an AI that plays close to randomly up to one that plays the mathematically perfect game and literally cannot be beaten, only drawn at absolute best.",
+    "howToPlay": "Pick a difficulty (Blind, Novice, or Master), then click any empty square to place your mark. Get three in a row before the computer does, or hold out for a draw against Master.",
+    "tips": "Take the center square first if you have the first move, since it's involved in more possible winning lines, four total, than any edge or corner square on the board. If the center is already taken, corners are the next best opening since they're involved in three winning lines each, compared to only two for an edge square. Always check for your opponent's immediate winning move before making your own, since blocking a real threat matters more than advancing your own position if you're not also under threat yourself. Watch specifically for a fork, a move that creates two different winning lines at once, since that's the standard way a game is actually won or lost once both players are past the opening; a single overlooked fork is usually the entire difference between a draw and a loss on Master difficulty."
   }
 ]

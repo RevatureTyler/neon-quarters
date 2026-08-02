@@ -50,6 +50,50 @@
 <script src="js/theme.js"></script>
 <script>
 const POSTS = {
+  'achievements-and-two-new-games': {
+    title: 'Achievements, plus Pong and Tic-Tac-Toe join the vault',
+    date: 'JUL 31, 2026',
+    excerpt: 'Two new classics, one game that almost made it in but got pulled over a licensing conflict, and a new achievements page.',
+    html: `
+      <p>Two new games this round: Jake Gordon's <a href="game.html?id=pong">Pong</a>, the same
+      developer behind JS Racer, and Mostafa Samir's <a href="game.html?id=tic-tac-toe">Tic-Tac-Toe</a>,
+      which includes a minimax powered AI opponent with three difficulty levels, all the way up to a
+      Master mode that plays mathematically perfect and can only ever be drawn, never beaten.</p>
+      <p>A third candidate almost made it in: an HTML5 bubble shooter with a clean MIT license file at
+      the root of its repository. Digging further, though, its actual game script carried its own
+      copyright header explicitly licensing that specific file under the GPL instead, a direct conflict
+      with the repo's own LICENSE file. Rather than guess which one actually governs the code, we
+      dropped it. We'd rather ship fewer games than get a license wrong, and this is exactly why we check
+      the header of the actual source file now, not just whatever license file sits at the top of a
+      repository.</p>
+      <p>Separately, there's now an <a href="leaderboards.html#achievements">achievements page</a> under
+      Leaderboards: ten badges built entirely from stats this site was already quietly tracking in your
+      browser, favorites, ratings, high scores, and play counts, so anyone who's already played a few
+      rounds will find some of them unlocked the first time they check.</p>
+    `
+  },
+  'mobile-support': {
+    title: 'Neon Quarters now actually works on a phone',
+    date: 'JUL 30, 2026',
+    excerpt: 'Touch controls, a virtual d-pad for keyboard-only games, and a pass to make sure every game actually fits the screen it is on.',
+    html: `
+      <p>Most of these games were written years ago for a mouse and keyboard, long before anyone
+      expected them to run on a phone. Getting them working properly on a touchscreen took more than a
+      responsive layout: every game's canvas is now measured and scaled to fit its player frame instead
+      of being cropped to a corner, which is what a fixed-pixel canvas from 2014 does by default on a
+      screen it was never designed for.</p>
+      <p>Touch itself needed real translation work too. A tap now behaves like a click, a drag behaves
+      like a mouse drag for games like Classic Pool where aiming depends on it, and a long press acts as
+      a right click, which matters specifically for flagging a tile in Minesweeper. For the handful of
+      games that only ever listen for arrow keys or WASD, a virtual on-screen d-pad now appears on
+      smaller screens and dispatches the same key events those games were already built to expect, so
+      nothing had to be rewritten inside the games themselves.</p>
+      <p>A couple of genuine bugs came out of testing this properly rather than just eyeballing it: ads
+      were silently never loading the first time a new visitor accepted the cookie banner, only after a
+      manual refresh, and Hangman had been rendering completely unstyled for every single visitor
+      because of an absolute file path pointing at the wrong folder. Both are fixed now.</p>
+    `
+  },
   'welcome-to-neon-quarters': {
     title: 'Welcome to Neon Quarters',
     date: 'JUL 21, 2026',
