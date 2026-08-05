@@ -184,12 +184,29 @@ function setupResponsiveIframe(iframe, frameEl) {
   // content is actually ready wins, and the rest are harmless no-ops.
   [0, 100, 300, 600, 1000, 2000].forEach((delay) => setTimeout(schedule, delay));
 
+  // Some games swap their whole DOM after load -- a settings/difficulty
+  // modal gets replaced by the actual game board, or a game-over screen
+  // gets inserted -- without ever changing documentElement's own box size
+  // (it's pinned to height:100%) or frameEl's size, so neither ResizeObserver
+  // below would notice. Watch body's subtree directly and re-measure when it
+  // changes. Debounced (rather than the immediate `schedule`) because some
+  // games mutate the DOM continuously during play (e.g. tile animations),
+  // and re-measuring on every single mutation would thrash layout.
+  let mutationTimer = null;
+  function scheduleDebounced() {
+    clearTimeout(mutationTimer);
+    mutationTimer = setTimeout(measureAndScale, 200);
+  }
+
   iframe.addEventListener('load', () => {
     schedule();
     try {
       const doc = iframe.contentDocument;
       if (doc && window.ResizeObserver) {
         new ResizeObserver(schedule).observe(doc.documentElement);
+      }
+      if (doc && window.MutationObserver) {
+        new MutationObserver(scheduleDebounced).observe(doc.body, { childList: true, subtree: true });
       }
     } catch (e) {}
   });
