@@ -175,9 +175,17 @@ function setupResponsiveIframe(iframe, frameEl) {
     setTimeout(() => { pending = false; measureAndScale(); }, 0);
   }
 
+  // The iframe's own load event turned out to be an unreliable single
+  // trigger in practice -- it fires inconsistently depending on exactly how
+  // a given game's page loads its scripts and images, so some games never
+  // got scaled at all. measureAndScale() is cheap and idempotent, so instead
+  // of depending on one specific event, just retry it several times over
+  // the first couple of seconds; whichever attempt lands after the iframe's
+  // content is actually ready wins, and the rest are harmless no-ops.
+  [0, 100, 300, 600, 1000, 2000].forEach((delay) => setTimeout(schedule, delay));
+
   iframe.addEventListener('load', () => {
     schedule();
-    setTimeout(schedule, 300);
     try {
       const doc = iframe.contentDocument;
       if (doc && window.ResizeObserver) {
