@@ -143,26 +143,36 @@ function setupResponsiveIframe(iframe, frameEl) {
     const html = doc.documentElement;
     const body = doc.body;
 
-    // Reset so scrollWidth/Height reflect the page's true natural size,
-    // not a previous scale pass.
-    html.style.cssText = 'margin:0; padding:0; height:100%; overflow:hidden; display:flex; align-items:center; justify-content:center;';
-    body.style.cssText = 'margin:0; padding:0;';
+    // A block-level body with no explicit width just stretches to fill
+    // its containing block (the iframe's current CSS width), so reading
+    // scrollWidth off it reports the CONTAINER's size, not the content's,
+    // once the iframe is wider than the content actually needs -- exactly
+    // backwards from what we want to measure. Force it to shrink-wrap its
+    // content first (inline-block sizes to content, not to its parent).
+    html.style.cssText = 'margin:0; padding:0; height:100%; overflow:hidden;';
+    body.style.cssText = 'margin:0; padding:0; display:inline-block; width:auto; height:auto;';
 
-    const naturalW = Math.max(body.scrollWidth, html.scrollWidth);
-    const naturalH = Math.max(body.scrollHeight, html.scrollHeight);
+    const naturalW = Math.max(body.scrollWidth, 1);
+    const naturalH = Math.max(body.scrollHeight, 1);
     const availW = frameEl.clientWidth;
     const availH = frameEl.clientHeight;
     if (!naturalW || !naturalH || !availW || !availH) return;
 
     const scale = Math.min(availW / naturalW, availH / naturalH);
 
+    html.style.cssText = 'margin:0; padding:0; height:100%; overflow:hidden; display:flex; align-items:center; justify-content:center;';
     body.style.cssText = `margin:0; padding:0; width:${naturalW}px; height:${naturalH}px; flex:none; transform-origin:center center; transform:scale(${scale});`;
   }
 
+  // setTimeout rather than requestAnimationFrame: rAF only fires while the
+  // tab is actually being painted, and can sit suspended indefinitely for a
+  // background or not-yet-composited tab. This is a one-time layout
+  // measurement, not a frame of animation, so it doesn't need rAF's timing
+  // guarantees and setTimeout is the more reliable choice here.
   function schedule() {
     if (pending) return;
     pending = true;
-    requestAnimationFrame(() => { pending = false; measureAndScale(); });
+    setTimeout(() => { pending = false; measureAndScale(); }, 0);
   }
 
   iframe.addEventListener('load', () => {
