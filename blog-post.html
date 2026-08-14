@@ -50,6 +50,74 @@
 <script src="js/theme.js"></script>
 <script>
 const POSTS = {
+  'six-new-games-and-a-few-that-didnt-make-it': {
+    title: 'Six new games join the vault, a few with a mind of their own',
+    date: 'AUG 13, 2026',
+    excerpt: 'InvaderZ, Genius, Googol, JoKenPo, BangBang, and IsoCity, plus the honest list of what got rejected this round and why.',
+    html: `
+      <p>This batch came from one place: the back catalog of Victor Ribeiro (victorqribeiro on GitHub), an
+      indie developer who has spent years building small, self-contained browser games, a lot of them
+      pairing a classic arcade format with a genuinely simple machine learning idea instead of a scripted
+      difficulty curve. All six are MIT licensed, and we went through the same process as every batch
+      before this one: check the actual header of the actual source file, not just whatever's sitting in
+      the repo's root LICENSE, and look hard at every image and audio asset before it ships.</p>
+      <p><a href="game.html?id=invaderz">InvaderZ</a> is Space Invaders with a real genetic algorithm
+      running underneath it: invaders that survive a wave breed into the next generation's population, so
+      a sloppy clear actually makes the next wave harder to read, not just faster. <a
+      href="game.html?id=genius">Genius</a> is a Simon-style memory game that lets you layer color, sound,
+      letters, numbers, and directions on top of each other, built around the idea that people genuinely
+      encode sequences differently. <a href="game.html?id=googol">Googol</a> is a playable version of the
+      secretary problem, the classic optimal-stopping puzzle from decision theory, dressed up as a
+      pick-a-number game with a "Computer" button that plays the mathematically optimal strategy for you.
+      <a href="game.html?id=jokenpo">JoKenPo</a> and <a href="game.html?id=bangbang">BangBang</a> both pit
+      you against a small neural network trained live during your match, rock-paper-scissors and artillery
+      dueling respectively, so the opponent starts every game knowing nothing about you and gets better at
+      reading your habits the longer you play predictably. <a href="game.html?id=isocity">IsoCity</a> is
+      the odd one out: no goal, no score, no failure state, just an isometric grid and a tile palette,
+      using CC0 tile art from Kenney.nl, credited here even though that license doesn't require it.</p>
+      <p>Getting these five self-sizing games (everything except InvaderZ) to actually display correctly
+      turned up a real bug worth naming: none of them set an explicit background color, relying on a
+      plain browser default that happens to be white on a normal tab. Inside our black player frame, that
+      default rendered as transparent instead, which meant black text and black-outlined icons on top of
+      our own black background, completely invisible. Fixed by giving each one an explicit white
+      background in its own CSS.</p>
+      <p>Five other candidates from the same sweep did not make it in, and it's worth explaining why rather
+      than just skipping them. A driving game's car sprite turned out to be a real photographed
+      Mercedes-Maybach, not original artwork, badge and all, not something an MIT code license covers. A
+      tower defense game was marked unfinished by its own README and shipped with a dozen third-party
+      music and sound effect files we'd have needed to individually trace and credit for a WIP we weren't
+      confident about featuring. A shooter had a single sound effect with no credited source anywhere in
+      the repo. A number-ordering puzzle turned out to be mechanically identical to the 15 Puzzle already
+      in the vault, just on a smaller grid. And a solitaire implementation required a React and yarn build
+      pipeline that doesn't fit how every other game here ships: plain files, no build step. See <a
+      href="blog-post.html?slug=how-we-license-games">how we license every game</a> for the full process
+      behind calls like these.</p>
+    `
+  },
+  'decluttering-the-genre-filter': {
+    title: 'The homepage had two genre filters doing the exact same job',
+    date: 'AUG 13, 2026',
+    excerpt: 'A cleanup pass on browsing and discovery: one genre filter instead of two, related-game recommendations that are actually related, and a featured slot that finally rotates.',
+    html: `
+      <p>Sometimes the most useful change is subtraction. The homepage had two separate genre selectors
+      stacked directly on top of each other, colorful icon chips right below the hero, then a second row
+      of plain text buttons doing the identical job a few lines further down, both filtering the same
+      grid. It's the kind of thing that's easy to stop seeing once it's shipped. It's gone now: the icon
+      chips are the only genre filter, and they now show a live count per genre, like PUZZLE (8), so you
+      know how much is actually in a category before you click into it.</p>
+      <p>Two smaller fixes came out of the same pass. Every game page has a "More Games" row at the
+      bottom, and it turned out to be picking its four suggestions by raw file order, meaning a Snake page
+      could recommend 2048 and JS Racer ahead of anything actually similar. It now prefers same-genre
+      picks first and only backfills with the rest of the catalog when a genre is thin, and the row's own
+      label updates to match, "MORE ARCADE GAMES" instead of a generic "MORE GAMES" wherever that's true.
+      Separately, the homepage's featured game slot had been hardcoded to whatever sits first in
+      games.json since launch, permanently spotlighting the same game. It now rotates by calendar day, so
+      the spotlight actually moves through the catalog instead of parking on one game forever.</p>
+      <p>Neither of these needed a redesign, just someone actually looking at what was already there. The
+      game grid also gets a small staggered fade-in now when it renders or re-filters, mostly because a
+      static grid popping in flat felt off for a site built around old arcade cabinets.</p>
+    `
+  },
   'achievements-and-two-new-games': {
     title: 'Achievements, plus Pong and Tic-Tac-Toe join the vault',
     date: 'JUL 31, 2026',
