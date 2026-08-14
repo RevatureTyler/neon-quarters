@@ -125,7 +125,7 @@ function loadGame() {
 // reassigning the canvas's drawing-buffer resolution and computing click
 // offsets from element layout). Wrapping those in an extra CSS transform
 // doesn't help and breaks their own coordinate math, so they're left alone.
-const SELF_SIZING_GAMES = ['classic-pool', 'astray', 'bullet-hell', 'lights-out'];
+const SELF_SIZING_GAMES = ['classic-pool', 'astray', 'bullet-hell', 'lights-out', 'genius', 'googol', 'jokenpo', 'bangbang', 'isocity'];
 
 // Most of these games are small fixed-pixel canvas/DOM pages from ~2013-2020
 // with no responsive CSS of their own. Rather than patching 21 codebases,
@@ -340,6 +340,14 @@ const TOUCH_CONTROL_CONFIGS = {
   'lunar-lander': {
     dpad: ['left', 'right', 'up', 'down'],
     buttons: [ { label: 'RESTART', key: 'r', keyCode: 82 } ]
+  },
+  'invaderz': {
+    dpad: ['left', 'right'],
+    buttons: [ { label: 'FIRE', key: ' ', keyCode: 32 } ]
+  },
+  'bangbang': {
+    dpad: ['left', 'right', 'up', 'down'],
+    buttons: [ { label: 'FIRE', key: ' ', keyCode: 32 } ]
   }
 };
 

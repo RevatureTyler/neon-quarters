@@ -501,5 +501,141 @@
     "description": "Tic-tac-toe's lineage goes back thousands of years, with grid based three-in-a-row games appearing in ancient Egypt and later in Roman ruins as a game called Terni Lapilli, long before it settled into the exact three by three format everyone learns as a child today. It's also one of the cleanest examples in all of game theory of what's called a solved game: with perfect play from both sides, tic-tac-toe always ends in a draw, a fact simple enough to prove by hand that it's a standard first exercise for anyone learning the minimax algorithm, the same core technique behind chess engines and most other adversarial game AI. This version leans directly into that history, built by Mostafa Samir specifically as a demonstration of minimax in action, with three difficulty levels that scale from an AI that plays close to randomly up to one that plays the mathematically perfect game and literally cannot be beaten, only drawn at absolute best.",
     "howToPlay": "Pick a difficulty (Blind, Novice, or Master), then click any empty square to place your mark. Get three in a row before the computer does, or hold out for a draw against Master.",
     "tips": "Take the center square first if you have the first move, since it's involved in more possible winning lines, four total, than any edge or corner square on the board. If the center is already taken, corners are the next best opening since they're involved in three winning lines each, compared to only two for an edge square. Always check for your opponent's immediate winning move before making your own, since blocking a real threat matters more than advancing your own position if you're not also under threat yourself. Watch specifically for a fork, a move that creates two different winning lines at once, since that's the standard way a game is actually won or lost once both players are past the opening; a single overlooked fork is usually the entire difference between a draw and a loss on Master difficulty."
+  },
+  {
+    "id": "invaderz",
+    "title": "InvaderZ",
+    "added": "2026-08-13",
+    "type": "html5",
+    "path": "games/files/invaderz/index.html",
+    "thumb": "games/thumbs/invaderz.png",
+    "genre": "Shooter",
+    "tags": [
+      "Shooter",
+      "Arcade",
+      "Space",
+      "Retro",
+      "Genetic Algorithm",
+      "Single Player"
+    ],
+    "license": "MIT",
+    "source": "https://github.com/victorqribeiro/invaderz",
+    "credit": "Victor Ribeiro",
+    "creatorBio": "Victor Ribeiro built InvaderZ as one of several small browser games pairing a classic arcade mechanic with a machine learning idea, this one built around a genetic algorithm.",
+    "description": "The original Space Invaders shipped from Taito in 1978, designed by Tomohiro Nishikado, who reportedly had to build his own custom hardware because nothing commercially available at the time could move that many sprites at once; the game went on to sell so many arcade cabinets in Japan that it's semi-seriously credited with causing a temporary shortage of 100 yen coins. InvaderZ takes that same descending grid of alien sprites and adds a real genetic algorithm underneath it: every invader that survives a wave gets a chance to pass its traits into the next generation's population, meaning the swarm you're facing later in a run isn't scripted to get harder, it's actually descended from whichever invaders were best at dodging your particular shots. Play sloppily and let a lot of invaders survive a wave, and you're literally breeding a tougher generation to face next.",
+    "howToPlay": "Left/right arrows or A/D move your ship, spacebar fires, and Enter restarts after a game over. Clear each wave of invaders before they reach the bottom of the screen; whichever invaders survive a wave breed into the next generation.",
+    "tips": "Prioritize a clean sweep over a fast one, since invaders that survive to breed pass on whatever let them survive, meaning a messy wave with several stragglers left alive tends to make the next generation measurably harder to read. Watch for invaders clustering into patterns that dodge your usual firing rhythm; that's the genetic algorithm actually working, and it means varying your own timing is worth more here than in a game with static enemy patterns. Early generations are the cheapest time to play tight, since a sloppy start compounds every generation afterward, while a sloppy run late costs you comparatively less."
+  },
+  {
+    "id": "genius",
+    "title": "Genius",
+    "added": "2026-08-13",
+    "type": "html5",
+    "path": "games/files/genius/index.html",
+    "thumb": "games/thumbs/genius.png",
+    "genre": "Skill",
+    "tags": [
+      "Skill",
+      "Memory",
+      "Reflex",
+      "Single Player",
+      "Classic"
+    ],
+    "license": "MIT",
+    "source": "https://github.com/victorqribeiro/genius",
+    "credit": "Victor Ribeiro",
+    "creatorBio": "Victor Ribeiro built Genius on top of his own open source RadialMenu component, deliberately layering in color, sound, letter, number, and directional feedback together so the game accommodates however your memory actually works.",
+    "description": "Electronic pattern-memory games go back to the late 1970s, when the classic four-color, four-tone version became a huge hit and popularized the whole genre of watch-a-growing-sequence-then-repeat-it games; the core mechanic has been rebuilt countless times since under countless different names because the rule itself was never anyone's to own, just the specific branded toy. This version's real point of interest isn't the pattern-matching loop, which is the genre's well worn core, but the amount of choice it gives you over how the pattern is presented: color feedback is always on, but you can layer in sound, letters, numbers, or directional arrows on top of it, or strip it down to just one channel, along with a speed slider. That matters because people genuinely encode sequences differently, some visually, some verbally, some spatially, and this is a rare implementation of the genre that treats that as a real design question instead of a single fixed presentation.",
+    "howToPlay": "Before starting, choose which feedback types help you most (color is always on; sound, letters, numbers, and directions are all optional extras) and set a speed. Watch the pattern play out, then repeat it back in the same order by clicking, tapping, or pressing the matching key. Each round you clear adds one more step to the sequence.",
+    "tips": "Break the growing sequence into small clusters of three or four instead of trying to hold the whole thing as one long string; chunking is the same trick that makes phone numbers easier to remember than a solid string of ten digits. Turn on more than one feedback channel if a single one isn't sticking, color plus letters or color plus direction gives you two independent ways to reconstruct the same step if you blank on one of them. Slow the speed down before you try to push your maximum sequence length; rushing a fast pattern tends to cost more rounds than the extra thinking time it saves."
+  },
+  {
+    "id": "googol",
+    "title": "Googol",
+    "added": "2026-08-13",
+    "type": "html5",
+    "path": "games/files/googol/index.html",
+    "thumb": "games/thumbs/googol.png",
+    "genre": "Puzzle",
+    "tags": [
+      "Puzzle",
+      "Probability",
+      "Logic",
+      "Single Player"
+    ],
+    "license": "MIT",
+    "source": "https://github.com/victorqribeiro/googol",
+    "credit": "Victor Ribeiro",
+    "creatorBio": "Victor Ribeiro built Googol after watching an explainer on optimal stopping theory, turning a genuine statistics problem into a small playable experiment rather than just reading about it.",
+    "description": "Googol is a playable version of what mathematicians call the secretary problem, or optimal stopping theory, a genuine decision theory problem studied since the 1950s that shows up anywhere you have to choose from a sequence of options one at a time, never knowing what's still ahead and never able to go back once you've passed on one. Here it's dressed up as a simple number game: you're shown a series of hidden values up to a googol (10 to the power of 100, a 1 followed by a hundred zeros), and you reveal them one at a time, each time choosing to either lock it in as your final answer or move on, permanently forfeiting any number you skip. The tension is entirely mathematical rather than mechanical: pick too early and you'll likely lock in a mediocre number before seeing the good ones; wait too long chasing something better and you'll run out of options and be stuck with whatever's left.",
+    "howToPlay": "Numbers are revealed to you one at a time. After seeing each one, choose to keep looking (moving past it for good) or click \"I'm done\" to lock it in as your final answer. There's no going back to a number once you've moved past it. Click \"Computer\" at any point to watch the mathematically optimal strategy play itself out instead.",
+    "tips": "The proven optimal strategy, sometimes called the 37% rule, is to automatically pass on roughly the first third of your total options no matter how good they look, purely to gather information on the range of values you're dealing with. After that point, lock in the very first number you see that beats everything you passed on in that sampling phase. This strategy doesn't guarantee the single best number every time, but it mathematically maximizes your odds of getting it, working out to roughly a 1 in 3 chance under ideal conditions, which is exactly why the \"Computer\" button wins as often as it does."
+  },
+  {
+    "id": "jokenpo",
+    "title": "JoKenPo",
+    "added": "2026-08-13",
+    "type": "html5",
+    "path": "games/files/jokenpo/index.html",
+    "thumb": "games/thumbs/jokenpo.png",
+    "genre": "Skill",
+    "tags": [
+      "Skill",
+      "Rock Paper Scissors",
+      "AI",
+      "Single Player"
+    ],
+    "license": "MIT",
+    "source": "https://github.com/victorqribeiro/jokenpo",
+    "credit": "Victor Ribeiro",
+    "creatorBio": "Victor Ribeiro built JoKenPo, named for the common Brazilian Portuguese term for rock-paper-scissors (borrowed from the Japanese jan-ken-pon), to test whether a small neural network could learn to predict a human opponent's moves from pattern history alone.",
+    "description": "Rock-paper-scissors belongs to a much older family of hand games called sansukumi-ken that trace back to Edo-period Japan, built around the same three-way-standoff logic later exported worldwide as jan-ken. JoKenPo keeps the rules exactly as familiar as ever, but replaces the opponent with a small multilayer perceptron, a genuinely simple neural network, that watches your last several throws and tries to learn whatever pattern you're playing by, then counters your predicted next move directly. Because the network is trained live during your match rather than pre-trained on some generic dataset, it starts every game knowing nothing about you specifically and gets measurably better at reading your habits the longer a match against the same pattern continues.",
+    "howToPlay": "Click rock, paper, or scissors on your turn. The neural network opponent studies your recent move history in real time and tries to predict and counter whatever you throw next.",
+    "tips": "Since the opponent is explicitly a pattern-recognition model, the only real counter is genuine unpredictability: avoid falling into cycles like always switching after a loss or repeating your last winning move, since both are exactly the kind of pattern a simple predictive network locks onto fastest. If you notice your win rate dropping over a long session, that's a real signal the network has found a pattern in your play, and deliberately breaking your own habits, even artificially, will usually recover it. Counterintuitively, playing closer to a coin flip than any deliberate strategy is the actual optimal approach against an opponent whose entire design is built around exploiting non-randomness."
+  },
+  {
+    "id": "bangbang",
+    "title": "BangBang",
+    "added": "2026-08-13",
+    "type": "html5",
+    "path": "games/files/bangbang/index.html",
+    "thumb": "games/thumbs/bangbang.png",
+    "genre": "Shooter",
+    "tags": [
+      "Shooter",
+      "Artillery",
+      "AI",
+      "Single Player"
+    ],
+    "license": "MIT",
+    "source": "https://github.com/victorqribeiro/bangBang",
+    "credit": "Victor Ribeiro",
+    "creatorBio": "Victor Ribeiro built BangBang around Dejavu, a small neural network of his own design and one of several toy AI opponents he's built into otherwise classic arcade formats.",
+    "description": "BangBang belongs to the artillery dueling genre that goes back to text-based mainframe games from the 1970s where two players typed in an angle and a velocity and watched a shell arc across the screen, a lineage that runs through Tank Wars and later Scorched Earth on the way to today. The twist here is the opponent: instead of a second human or a scripted difficulty curve, you're facing Dejavu, a small neural network that starts a fresh match firing essentially at random and adjusts its aim shot by shot based on where your own shells have been landing. Because Dejavu is trained live within a single match rather than pre-loaded with any strategy, the opening exchanges are close to a coin flip and the real test is whether you can out-adapt a system that's specifically trying to model you back.",
+    "howToPlay": "Left/right arrows rotate your cannon, up/down arrows increase or decrease shot strength, and spacebar fires. On mobile, drag on the right side of the screen to aim and the left side to adjust strength, then tap to fire. Land a hit on the AI-controlled cannon before it lands one on you.",
+    "tips": "Dejavu adjusts its aim based on your recent shots, so repeating the same angle-and-power combination after a near miss is exactly the pattern it's built to exploit; vary your adjustments rather than converging on it too predictably. Early shots matter less for accuracy than for information, since you're both still calibrating at that point; use them to get a feel for the arc rather than expecting a hit. Small, consistent power adjustments are easier to control your accuracy with than large swings, which tend to overshoot in one direction and undershoot in the other."
+  },
+  {
+    "id": "isocity",
+    "title": "IsoCity",
+    "added": "2026-08-13",
+    "type": "html5",
+    "path": "games/files/isocity/index.html",
+    "thumb": "games/thumbs/isocity.png",
+    "genre": "Sim",
+    "tags": [
+      "Sim",
+      "City Builder",
+      "Sandbox",
+      "Isometric",
+      "Single Player"
+    ],
+    "license": "MIT",
+    "source": "https://github.com/victorqribeiro/isocity",
+    "credit": "Victor Ribeiro (tile art: Kenney.nl, CC0)",
+    "creatorBio": "Victor Ribeiro built IsoCity as an isometric rendering exercise in plain JavaScript that turned into a genuine, goal-free city builder, using CC0 tile art from Kenney.nl.",
+    "description": "Isometric city builders owe their now-standard oblique, angled-down camera to SimCity, Will Wright's 1989 original, which borrowed the isometric perspective from an older tradition in strategy and role playing games as a way to show a grid of buildings with real depth on a 2D screen. IsoCity strips the genre down past even SimCity's original scope: there's no budget, no population target, no disaster events, and no failure state of any kind, just an isometric grid, a palette of roads, buildings, water, and trees, and full control over where each tile goes. It's less a management simulation than a small, open-ended diorama you build for its own sake, closer in spirit to a digital dollhouse than to the budget-juggling city sims that followed in SimCity's footsteps. The tile art comes from Kenney.nl, a prolific game-asset studio that releases nearly its entire catalog under CC0, into the public domain, credited here even though the license doesn't require it.",
+    "howToPlay": "Pick a tile from the tool palette on the side and click any cell on the isometric grid to place it. There's no goal, budget, or scoring; build the layout however you want.",
+    "tips": "Since there's no failure state, this rewards actually planning a layout rather than placing tiles at random: keep roads contiguous so the city reads as connected rather than scattered fragments, and cluster similar tiles, a row of houses, a row of shops, instead of spreading them evenly, since the isometric angle makes clean sightlines and organized blocks look noticeably better than a random scatter. Building outward from a single road spine tends to look more like an actual city than filling the grid corner to corner first."
   }
 ]
