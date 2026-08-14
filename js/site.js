@@ -6,7 +6,6 @@ const GENRE_ACCENTS = ['var(--cyan)', 'var(--magenta)', 'var(--amber)', 'var(--v
 
 function setActiveGenre(genre) {
   activeGenre = genre;
-  document.querySelectorAll('#filterBar button').forEach(b => b.classList.toggle('active', b.dataset.genre === genre));
   document.querySelectorAll('#genreRow .genre-chip').forEach(c => c.classList.toggle('active', c.dataset.genre === genre));
   renderGrid();
 }
@@ -58,22 +57,9 @@ function renderGrid() {
     quickView: true,
     isFavorite: favs.includes(g.id),
   })).join('');
-}
 
-function renderFilters() {
-  const bar = document.getElementById('filterBar');
-  bar.querySelectorAll('.skeleton').forEach(el => el.remove());
-  const genres = [...new Set(GAMES.map(g => g.genre))];
-  genres.forEach(genre => {
-    const btn = document.createElement('button');
-    btn.textContent = genre;
-    btn.dataset.genre = genre;
-    bar.appendChild(btn);
-  });
-
-  bar.addEventListener('click', (e) => {
-    if (e.target.tagName !== 'BUTTON') return;
-    setActiveGenre(e.target.dataset.genre);
+  grid.querySelectorAll('.game-card').forEach((card, i) => {
+    card.style.animationDelay = `${Math.min(i, 14) * 25}ms`;
   });
 }
 
@@ -81,12 +67,22 @@ function renderGenreRow() {
   const row = document.getElementById('genreRow');
   if (!row) return;
   const genres = [...new Set(GAMES.map(g => g.genre))];
-  row.innerHTML = genres.map((genre, i) => `
-    <button type="button" class="genre-chip" data-genre="${genre}" style="--accent:${GENRE_ACCENTS[i % GENRE_ACCENTS.length]}">
-      <span class="genre-icon shape-${GENRE_SHAPES[i % GENRE_SHAPES.length]}"></span>
-      ${genre}
+  const allChip = `
+    <button type="button" class="genre-chip active" data-genre="all" style="--accent:var(--amber)">
+      <span class="genre-icon shape-diamond"></span>
+      All (${GAMES.length})
     </button>
-  `).join('');
+  `;
+  const genreChips = genres.map((genre, i) => {
+    const count = GAMES.filter(g => g.genre === genre).length;
+    return `
+      <button type="button" class="genre-chip" data-genre="${genre}" style="--accent:${GENRE_ACCENTS[i % GENRE_ACCENTS.length]}">
+        <span class="genre-icon shape-${GENRE_SHAPES[i % GENRE_SHAPES.length]}"></span>
+        ${genre} (${count})
+      </button>
+    `;
+  }).join('');
+  row.innerHTML = allChip + genreChips;
   row.addEventListener('click', (e) => {
     const chip = e.target.closest('.genre-chip');
     if (!chip) return;
@@ -113,10 +109,17 @@ function renderSort() {
   });
 }
 
+function pickFeaturedGame() {
+  // Deterministic by calendar day so the spotlight rotates through the
+  // catalog day to day but stays stable for everyone during a single day.
+  const dayNumber = Math.floor(Date.now() / 86400000);
+  return GAMES[dayNumber % GAMES.length];
+}
+
 function renderFeatured() {
   const el = document.getElementById('featuredGame');
   if (!el || !GAMES.length) return;
-  const g = GAMES[0];
+  const g = pickFeaturedGame();
   el.innerHTML = `
     <p class="fg-label">FEATURED</p>
     <a href="game.html?id=${encodeURIComponent(g.id)}" class="fg-card">
@@ -207,7 +210,6 @@ function renderLeaderboard() {
 }
 
 window.gamesReady.then(() => {
-  renderFilters();
   renderGenreRow();
   renderSearch();
   renderSort();

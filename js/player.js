@@ -589,6 +589,12 @@ function renderRating(gameId) {
 function renderMoreGames(current) {
   const grid = document.getElementById('moreGrid');
   if (!grid) return;
-  const others = GAMES.filter(g => g.id !== current.id).slice(0, 4);
-  grid.innerHTML = others.map(g => renderGameCard(g)).join('');
+  const others = GAMES.filter(g => g.id !== current.id);
+  const sameGenre = others.filter(g => g.genre === current.genre);
+  const rest = others.filter(g => g.genre !== current.genre);
+  const picks = [...sameGenre, ...rest].slice(0, 4);
+  grid.innerHTML = picks.map(g => renderGameCard(g)).join('');
+
+  const label = document.getElementById('moreGamesLabel');
+  if (label) label.textContent = sameGenre.length ? `MORE ${current.genre.toUpperCase()} GAMES` : 'MORE GAMES';
 }
