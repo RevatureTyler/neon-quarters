@@ -348,6 +348,14 @@ const TOUCH_CONTROL_CONFIGS = {
   'bangbang': {
     dpad: ['left', 'right', 'up', 'down'],
     buttons: [ { label: 'FIRE', key: ' ', keyCode: 32 } ]
+  },
+  'tiny-platformer': {
+    dpad: ['left', 'right'],
+    buttons: [ { label: 'JUMP', key: ' ', keyCode: 32 } ]
+  },
+  'tower-platformer': {
+    dpad: ['left', 'right', 'up', 'down'],
+    buttons: [ { label: 'JUMP', key: ' ', keyCode: 32 } ]
   }
 };
 
