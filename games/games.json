@@ -637,5 +637,49 @@
     "description": "Isometric city builders owe their now-standard oblique, angled-down camera to SimCity, Will Wright's 1989 original, which borrowed the isometric perspective from an older tradition in strategy and role playing games as a way to show a grid of buildings with real depth on a 2D screen. IsoCity strips the genre down past even SimCity's original scope: there's no budget, no population target, no disaster events, and no failure state of any kind, just an isometric grid, a palette of roads, buildings, water, and trees, and full control over where each tile goes. It's less a management simulation than a small, open-ended diorama you build for its own sake, closer in spirit to a digital dollhouse than to the budget-juggling city sims that followed in SimCity's footsteps. The tile art comes from Kenney.nl, a prolific game-asset studio that releases nearly its entire catalog under CC0, into the public domain, credited here even though the license doesn't require it.",
     "howToPlay": "Pick a tile from the tool palette on the side and click any cell on the isometric grid to place it. There's no goal, budget, or scoring; build the layout however you want.",
     "tips": "Since there's no failure state, this rewards actually planning a layout rather than placing tiles at random: keep roads contiguous so the city reads as connected rather than scattered fragments, and cluster similar tiles, a row of houses, a row of shops, instead of spreading them evenly, since the isometric angle makes clean sightlines and organized blocks look noticeably better than a random scatter. Building outward from a single road spine tends to look more like an actual city than filling the grid corner to corner first."
+  },
+  {
+    "id": "color-lines",
+    "title": "Color Lines",
+    "added": "2026-08-15",
+    "type": "html5",
+    "path": "games/files/color-lines/index.html",
+    "thumb": "games/thumbs/color-lines.png",
+    "genre": "Puzzle",
+    "tags": [
+      "Puzzle",
+      "Logic",
+      "Classic",
+      "Single Player"
+    ],
+    "license": "MIT",
+    "source": "https://github.com/arnisritins/Color-Lines",
+    "credit": "Arnis Ritins",
+    "creatorBio": "Arnis Ritins, who also built the 15 Puzzle on this site, implemented Color Lines using an A* pathfinding algorithm (based on a tutorial by Brian Grinstead) to figure out whether a ball actually has a clear route to where you're trying to move it.",
+    "description": "Lines, sometimes called Color Lines or Lines 98, was created in 1992 by Russian developers Oleg Demin and Igor Ivanov and spread rapidly across early Windows and DOS PCs, well before match-3 games like Bejeweled popularized a similar color matching hook nearly a decade later. The difference is the mechanic underneath: instead of swapping adjacent tiles, you move a single ball at a time to any empty cell it can actually reach by a clear, unbroken path around the other balls on the board, which is exactly why this implementation needed real pathfinding rather than just checking if a destination cell happens to be empty. Every move you make that doesn't complete a line of five or more matching balls spawns three new random balls somewhere on the board, so the grid is always creeping toward full, and the entire game is a slow-building tension between clearing lines now and running out of room later.",
+    "howToPlay": "Click a ball, then click an empty cell to move it there; the move only works if there's a clear path between the two, moving only horizontally and vertically around other balls, not through them. Line up five or more balls of the same color in a row, column, or diagonal to clear them and score. Any move that doesn't clear a line adds three new random balls to the board. The game ends when the board fills up.",
+    "tips": "Check the forecast preview of the next three incoming balls before you move, since planning around what's about to spawn is often more valuable than optimizing your current move in isolation. Keep at least one or two colors deliberately clustered in a corner you're not actively using as a reserve, so a lucky spawn of that color gives you an easy line later instead of scattering across the board. Don't chase a five-in-a-row you can't actually complete this turn if it means blocking your own paths to easier, more available moves elsewhere; a blocked path is the same as no move at all in this game. Late in a game, prioritize keeping any two open cells connected by a path over almost anything else, since losing all your maneuvering room ends the game just as surely as filling the board does."
+  },
+  {
+    "id": "spinhook",
+    "title": "SpinHook",
+    "added": "2026-08-15",
+    "type": "html5",
+    "path": "games/files/spinhook/index.html",
+    "thumb": "games/thumbs/spinhook.png",
+    "genre": "Arcade",
+    "tags": [
+      "Arcade",
+      "Timing",
+      "Endless",
+      "Single Player"
+    ],
+    "license": "MIT",
+    "source": "https://github.com/sepandhaghighi/spinhook",
+    "credit": "Sepand Haghighi (graphics: ChatGPT)",
+    "creatorBio": "Sepand Haghighi, who also built the Lights Out puzzle on this site, made SpinHook as a hyper-casual arcade game built with the Phaser framework, with its visuals credited in the repo to ChatGPT.",
+    "description": "SpinHook belongs to the hyper-casual genre that took over mobile app stores through the late 2010s: a single input, a rule you can explain in one sentence, and a score that exists purely to make you want one more run. The whole game is one repeating decision, tap to launch your hook toward the next rotating orbit and time it right to catch on, and every successful catch chains straight into the next throw with the orbits spinning faster and the margin for error shrinking. There's no path to memorize and no level to learn, since the orbit layout is generated fresh each run, so the entire game rests on reading the current spin and committing to a launch window under a bit more pressure than the run before it.",
+    "howToPlay": "Click or tap anywhere on the screen to launch your hook toward the next rotating orbit. Time the launch so you attach as the orbit swings into range. Keep chaining catches to survive and build your score; a missed or mistimed launch ends the run.",
+    "tips": "Watch the orbit you're aiming for rather than the one you're currently attached to, since your launch timing depends entirely on predicting where the target orbit will be, not where you are right now. Release into orbits when they're swinging toward the center of the screen rather than at the extreme edge of their arc, since that gives your hook a shorter, more forgiving distance to close. The game's pace only ramps up the longer a run continues, so treat the early orbits as a chance to build a comfortable rhythm rather than rushing, since that same rhythm is what you'll be leaning on once the timing window gets tight."
   }
 ]
