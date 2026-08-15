@@ -87,9 +87,67 @@ function renderFavoritesList() {
   grid.innerHTML = games.map(g => renderGameCard(g)).join('');
 }
 
+// Usernames come from other players' accounts (via Supabase, not from
+// GAMES.json like everything else this file renders), so unlike the rest
+// of this file, this one value is genuinely untrusted input before it goes
+// into innerHTML below. The database's CHECK constraint on
+// public.profiles.username (supabase/schema.sql) already restricts it to
+// [a-zA-Z0-9_], but escaping here too costs nothing and doesn't depend on
+// that constraint never changing.
+function lbEscapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+// Global leaderboard is per-game (the `public.leaderboard` view in
+// supabase/schema.sql is keyed by game_id), so this needs a game picker
+// rather than one combined list. Only shown at all once SUPABASE_CONFIGURED
+// -- with no backend configured there's nothing to query, so the section
+// stays hidden exactly like it would if this feature didn't exist yet.
+async function renderGlobalLeaderboard(gameId) {
+  const list = document.getElementById('globalList');
+  const emptyNote = document.getElementById('globalEmptyNote');
+  list.innerHTML = '<li style="opacity:0.6;">Loading…</li>';
+  const { data, error } = await supabaseClient
+    .from('leaderboard')
+    .select('username, best_score, rank')
+    .eq('game_id', gameId)
+    .order('rank', { ascending: true })
+    .limit(10);
+
+  if (error || !data || !data.length) {
+    list.innerHTML = '';
+    emptyNote.hidden = false;
+    return;
+  }
+  emptyNote.hidden = true;
+  list.innerHTML = data.map(r => `
+    <li>
+      <span class="leaderboard-item">
+        <span class="rank">#${r.rank}</span>
+        <span class="lb-title">@${lbEscapeHtml(r.username)}</span>
+        <span class="lb-count">${Number(r.best_score).toLocaleString()} pts</span>
+      </span>
+    </li>
+  `).join('');
+}
+
+function initGlobalLeaderboard() {
+  if (!SUPABASE_CONFIGURED) return;
+  const section = document.getElementById('globalSection');
+  const select = document.getElementById('globalGameSelect');
+  section.hidden = false;
+  document.getElementById('globalTab').hidden = false;
+  select.innerHTML = GAMES.map(g => `<option value="${g.id}">${g.title}</option>`).join('');
+  select.addEventListener('change', () => renderGlobalLeaderboard(select.value));
+  renderGlobalLeaderboard(select.value);
+}
+
 window.gamesReady.then(() => {
   renderHighScores();
   renderMostPlayed();
   renderTopRated();
   renderFavoritesList();
+  initGlobalLeaderboard();
 });

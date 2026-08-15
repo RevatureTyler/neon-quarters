@@ -464,6 +464,7 @@ function trackPlay(gameId) {
   try { plays = JSON.parse(localStorage.getItem('nq-plays') || '{}'); } catch (e) {}
   plays[gameId] = (plays[gameId] || 0) + 1;
   localStorage.setItem('nq-plays', JSON.stringify(plays));
+  if (window.nqCloudRecordPlay) nqCloudRecordPlay(gameId);
 }
 
 function renderShareRow(game) {
@@ -544,8 +545,10 @@ function initFavoriteButton(gameId) {
   btn.addEventListener('click', () => {
     const favs = getFavs();
     const idx = favs.indexOf(gameId);
-    if (idx === -1) favs.push(gameId); else favs.splice(idx, 1);
+    const nowFavorite = idx === -1;
+    if (nowFavorite) favs.push(gameId); else favs.splice(idx, 1);
     localStorage.setItem('nq-favorites', JSON.stringify(favs));
+    if (window.nqCloudRecordFavorite) nqCloudRecordFavorite(gameId, nowFavorite);
     sync();
   });
   sync();
@@ -585,6 +588,7 @@ function renderRating(gameId) {
       const all = getRatings();
       all[gameId] = i;
       localStorage.setItem('nq-ratings', JSON.stringify(all));
+      if (window.nqCloudRecordRating) nqCloudRecordRating(gameId, i);
       paint(current);
       status.textContent = 'Saved, thanks!';
     });

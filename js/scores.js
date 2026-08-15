@@ -37,6 +37,7 @@ function recordScoreIfBetter(gameId, score) {
   if (score > (scores[gameId] || 0)) {
     scores[gameId] = score;
     localStorage.setItem(SCORE_KEY, JSON.stringify(scores));
+    if (window.nqCloudRecordScore) nqCloudRecordScore(gameId, score);
   }
   return scores[gameId] || 0;
 }

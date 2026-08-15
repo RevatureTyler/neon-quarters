@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LMW77LPKMG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LMW77LPKMG');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account: Neon Quarters</title>
+<meta name="description" content="Sign in to Neon Quarters for a synced profile and a spot on the global leaderboards. Never required to play.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Account: Neon Quarters">
+<meta property="og:description" content="Sign in to Neon Quarters for a synced profile and a spot on the global leaderboards. Never required to play.">
+<meta property="og:image" content="games/thumbs/js-racer.jpg">
+<meta name="robots" content="noindex">
+<script src="js/theme-init.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2636244885787785" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.3/dist/umd/supabase.min.js" integrity="sha384-l8ah+VgaWtk1mvOe9VC+OirC6qHFF4yH7l7mKRidV9MSti3E9F463bMp6ZVN4kuC" crossorigin="anonymous"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cloud-sync.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo"><a href="index.html" style="color:inherit"><span class="coin"></span> NEON QUARTERS</a></div>
+  <button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀</button>
+</header>
+
+<main style="max-width:520px;">
+  <p class="section-label">ACCOUNT</p>
+
+  <div id="notConfigured" hidden>
+    <h1 style="font-size:1.1rem; margin:0 0 0.5rem;">Accounts aren't set up on this site yet</h1>
+    <p class="tagline">
+      This is normal, not a bug: every game here is fully playable with no account at all, and
+      your favorites, ratings, and high scores already work, tracked in this browser. An optional
+      account only adds a synced profile across devices and a spot on the global leaderboards.
+    </p>
+  </div>
+
+  <div id="signedOutView" hidden>
+    <p class="tagline" style="margin-bottom:1.5rem;">
+      Optional. Playing, favoriting, rating, and high scores all work with no account, tracked in
+      this browser only. Sign in for a username on the global leaderboards and to keep your
+      progress synced if you play from more than one device.
+    </p>
+
+    <div class="form-row" style="margin-bottom:1.25rem;">
+      <button type="button" class="btn" id="tabSignIn" style="flex:1;">SIGN IN</button>
+      <button type="button" class="btn" id="tabSignUp" style="flex:1; opacity:0.6;">CREATE ACCOUNT</button>
+    </div>
+
+    <form id="signInForm" class="submit-form">
+      <label class="form-field">
+        <span>Email</span>
+        <input type="email" name="email" required autocomplete="email">
+      </label>
+      <label class="form-field">
+        <span>Password</span>
+        <input type="password" name="password" required autocomplete="current-password">
+      </label>
+      <button type="submit" class="btn">SIGN IN</button>
+    </form>
+
+    <form id="signUpForm" class="submit-form" hidden>
+      <label class="form-field">
+        <span>Username</span>
+        <input type="text" name="username" required pattern="[a-zA-Z0-9_]{3,20}"
+               title="3-20 characters: letters, numbers, underscore" autocomplete="username">
+      </label>
+      <label class="form-field">
+        <span>Email</span>
+        <input type="email" name="email" required autocomplete="email">
+      </label>
+      <label class="form-field">
+        <span>Password</span>
+        <input type="password" name="password" required minlength="6" autocomplete="new-password">
+      </label>
+      <button type="submit" class="btn">CREATE ACCOUNT</button>
+    </form>
+
+    <p id="authStatus" class="tagline" style="margin-top:1rem;"></p>
+  </div>
+
+  <div id="signedInView" hidden>
+    <h1 style="font-size:1.1rem; margin:0 0 0.25rem;" id="welcomeUsername"></h1>
+    <p class="tagline" style="margin-bottom:1.5rem;">
+      Synced across any device you sign in on. See how you rank on the
+      <a href="leaderboards.html">global leaderboards</a>.
+    </p>
+    <div class="form-row" style="margin-bottom:1.5rem;">
+      <div class="leaderboard" style="flex:1; text-align:center; padding:0.75rem;">
+        <p class="section-label" style="font-size:0.6rem;">GAMES PLAYED</p>
+        <p id="statGamesPlayed" style="font-size:1.4rem; margin:0.25rem 0 0;">0</p>
+      </div>
+      <div class="leaderboard" style="flex:1; text-align:center; padding:0.75rem;">
+        <p class="section-label" style="font-size:0.6rem;">FAVORITES</p>
+        <p id="statFavorites" style="font-size:1.4rem; margin:0.25rem 0 0;">0</p>
+      </div>
+    </div>
+    <button type="button" class="btn" id="signOutBtn">SIGN OUT</button>
+    <p class="tagline" style="margin-top:1.5rem; font-size:0.7rem;">
+      Want your account and data deleted? Email
+      <a href="mailto:tharbykc892@gmail.com">tharbykc892@gmail.com</a> from the address you signed
+      up with and we'll remove it. See the <a href="privacy.html">Privacy Policy</a> for details.
+    </p>
+  </div>
+</main>
+
+<footer>
+  <p><a href="index.html">&larr; Back to arcade</a> · <a href="leaderboards.html">Leaderboards</a> · <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+<script src="js/theme.js"></script>
+<script src="js/cookie-consent.js"></script>
+<script src="js/games-data.js"></script>
+<script>
+(function () {
+  const notConfigured = document.getElementById('notConfigured');
+  const signedOutView = document.getElementById('signedOutView');
+  const signedInView = document.getElementById('signedInView');
+
+  if (!SUPABASE_CONFIGURED) {
+    notConfigured.hidden = false;
+    return;
+  }
+
+  const tabSignIn = document.getElementById('tabSignIn');
+  const tabSignUp = document.getElementById('tabSignUp');
+  const signInForm = document.getElementById('signInForm');
+  const signUpForm = document.getElementById('signUpForm');
+  const authStatus = document.getElementById('authStatus');
+
+  tabSignIn.addEventListener('click', () => {
+    signInForm.hidden = false;
+    signUpForm.hidden = true;
+    tabSignIn.style.opacity = '1';
+    tabSignUp.style.opacity = '0.6';
+    authStatus.textContent = '';
+  });
+  tabSignUp.addEventListener('click', () => {
+    signInForm.hidden = true;
+    signUpForm.hidden = false;
+    tabSignIn.style.opacity = '0.6';
+    tabSignUp.style.opacity = '1';
+    authStatus.textContent = '';
+  });
+
+  signInForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    authStatus.textContent = 'Signing in…';
+    const fd = new FormData(signInForm);
+    const result = await nqSignIn(fd.get('email'), fd.get('password'));
+    authStatus.textContent = result.error || '';
+  });
+
+  signUpForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    authStatus.textContent = 'Creating account…';
+    const fd = new FormData(signUpForm);
+    const result = await nqSignUp(fd.get('email'), fd.get('password'), fd.get('username'));
+    if (result.error) {
+      authStatus.textContent = result.error;
+    } else if (result.needsEmailConfirmation) {
+      authStatus.textContent = 'Check your email to confirm your account, then sign in.';
+      signUpForm.reset();
+    }
+  });
+
+  document.getElementById('signOutBtn').addEventListener('click', () => nqSignOut());
+
+  function renderSignedIn(username) {
+    document.getElementById('welcomeUsername').textContent = `Signed in as @${username || '...'}`;
+    let plays = {}, favorites = [];
+    try { plays = JSON.parse(localStorage.getItem('nq-plays') || '{}'); } catch (e) {}
+    try { favorites = JSON.parse(localStorage.getItem('nq-favorites') || '[]'); } catch (e) {}
+    document.getElementById('statGamesPlayed').textContent = Object.keys(plays).length;
+    document.getElementById('statFavorites').textContent = favorites.length;
+  }
+
+  nqOnAuthChange((session, username) => {
+    signedOutView.hidden = !!session;
+    signedInView.hidden = !session;
+    if (session) renderSignedIn(username);
+  });
+})();
+</script>
+</body>
+</html>

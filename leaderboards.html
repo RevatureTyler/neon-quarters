@@ -40,18 +40,26 @@
   <p class="section-label">LEADERBOARDS</p>
   <h1 style="font-size:1.1rem; margin:0 0 0.5rem;">Your arcade stats</h1>
   <p class="tagline" style="margin-bottom:1.75rem;">
-    Everything below is tracked in this browser only, the same as your favorites and
-    ratings. There's no account and no server, so this is a personal record, not a
-    ranking against other players. See the <a href="privacy.html">Privacy Policy</a>
-    for details.
+    Everything below is tracked in this browser, the same as your favorites and ratings.
+    <a href="account.html">Sign in</a> to also sync it across devices and show up on the
+    global leaderboard, ranked against everyone else who has. Never required to play. See
+    the <a href="privacy.html">Privacy Policy</a> for details.
   </p>
 
   <div class="leaderboard-tabs">
+    <a href="#global" id="globalTab" hidden>Global</a>
     <a href="#achievements">Achievements</a>
     <a href="#high-scores">High Scores</a>
     <a href="#most-played">Most Played</a>
     <a href="#top-rated">Top Rated</a>
     <a href="#favorites">Favorites</a>
+  </div>
+
+  <div class="leaderboard" id="globalSection" hidden>
+    <p class="section-label" id="global">GLOBAL LEADERBOARD</p>
+    <select id="globalGameSelect" class="sort-select" style="margin-bottom:0.85rem;"></select>
+    <p class="empty-note" id="globalEmptyNote" hidden>No global scores for this game yet. Be the first.</p>
+    <ol class="leaderboard-list" id="globalList"></ol>
   </div>
 
   <div class="leaderboard" id="achievementsSection">
@@ -90,6 +98,11 @@
 </footer>
 
 <script src="js/games-data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.3/dist/umd/supabase.min.js" integrity="sha384-l8ah+VgaWtk1mvOe9VC+OirC6qHFF4yH7l7mKRidV9MSti3E9F463bMp6ZVN4kuC" crossorigin="anonymous"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cloud-sync.js"></script>
+<script src="js/account-widget.js"></script>
 <script src="js/leaderboards.js"></script>
 <script src="js/achievements.js"></script>
 <script src="js/theme.js"></script>
