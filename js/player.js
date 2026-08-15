@@ -125,7 +125,7 @@ function loadGame() {
 // reassigning the canvas's drawing-buffer resolution and computing click
 // offsets from element layout). Wrapping those in an extra CSS transform
 // doesn't help and breaks their own coordinate math, so they're left alone.
-const SELF_SIZING_GAMES = ['classic-pool', 'astray', 'bullet-hell', 'lights-out', 'genius', 'googol', 'jokenpo', 'bangbang', 'isocity', 'spinhook'];
+const SELF_SIZING_GAMES = ['classic-pool', 'astray', 'bullet-hell', 'lights-out', 'genius', 'googol', 'jokenpo', 'bangbang', 'isocity', 'spinhook', 'tower-defense'];
 
 // Most of these games are small fixed-pixel canvas/DOM pages from ~2013-2020
 // with no responsive CSS of their own. Rather than patching 21 codebases,

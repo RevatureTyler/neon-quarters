@@ -681,5 +681,69 @@
     "description": "SpinHook belongs to the hyper-casual genre that took over mobile app stores through the late 2010s: a single input, a rule you can explain in one sentence, and a score that exists purely to make you want one more run. The whole game is one repeating decision, tap to launch your hook toward the next rotating orbit and time it right to catch on, and every successful catch chains straight into the next throw with the orbits spinning faster and the margin for error shrinking. There's no path to memorize and no level to learn, since the orbit layout is generated fresh each run, so the entire game rests on reading the current spin and committing to a launch window under a bit more pressure than the run before it.",
     "howToPlay": "Click or tap anywhere on the screen to launch your hook toward the next rotating orbit. Time the launch so you attach as the orbit swings into range. Keep chaining catches to survive and build your score; a missed or mistimed launch ends the run.",
     "tips": "Watch the orbit you're aiming for rather than the one you're currently attached to, since your launch timing depends entirely on predicting where the target orbit will be, not where you are right now. Release into orbits when they're swinging toward the center of the screen rather than at the extreme edge of their arc, since that gives your hook a shorter, more forgiving distance to close. The game's pace only ramps up the longer a run continues, so treat the early orbits as a chance to build a comfortable rhythm rather than rushing, since that same rhythm is what you'll be leaning on once the timing window gets tight."
+  },
+  {
+    "id": "tiny-platformer",
+    "title": "Tiny Platformer",
+    "added": "2026-08-15",
+    "type": "html5",
+    "path": "games/files/tiny-platformer/index.html",
+    "thumb": "games/thumbs/tiny-platformer.png",
+    "genre": "Platformer",
+    "tags": [
+      "Platformer",
+      "Minimalist",
+      "Single Player"
+    ],
+    "license": "MIT",
+    "source": "https://github.com/jakesgordon/javascript-tiny-platformer",
+    "credit": "Jake Gordon",
+    "creatorBio": "Jake Gordon, who also built JS Racer and Pong on this site, wrote Tiny Platformer as a teaching example, later revisiting it in a follow-up article to add monsters and treasure on top of the original bare-bones movement.",
+    "description": "The platformer genre's modern template traces to Donkey Kong, Nintendo's 1981 arcade game designed by Shigeru Miyamoto, which introduced running and jumping across a series of platforms to avoid obstacles as its own distinct genre rather than a side element of something else. Tiny Platformer strips that idea down to almost nothing: every platform, monster, and coin is a plain colored rectangle, with no sprites or art assets standing between you and the underlying mechanics of a jump arc, a collision box, and a moving hazard. That bareness is entirely intentional; Jake Gordon built it as a teaching example, and platform game fundamentals like coyote time, jump buffering, and momentum are much easier to see and reason about when there's nothing decorative distracting from them.",
+    "howToPlay": "Left/right arrows move, spacebar jumps. Collect gold rectangles and avoid or jump on top of monster rectangles to defeat them. Falling off the bottom of the level ends your run.",
+    "tips": "Time your jumps from the very edge of a platform rather than jumping early, since the extra half-step of ground time gives you noticeably more horizontal distance before you start falling. Jumping directly onto a monster's head defeats it, but jumping into it from the side costs you the run, so approach monsters from above whenever the platform layout gives you the option. Momentum carries through the peak of a jump here, so small mid-air direction adjustments are more reliable than trying to line up your entire trajectory before you leave the ground."
+  },
+  {
+    "id": "tower-platformer",
+    "title": "Tower Platformer",
+    "added": "2026-08-15",
+    "type": "html5",
+    "path": "games/files/tower-platformer/index.html",
+    "thumb": "games/thumbs/tower-platformer.png",
+    "genre": "Platformer",
+    "tags": [
+      "Platformer",
+      "Climbing",
+      "Arcade",
+      "Single Player"
+    ],
+    "license": "MIT",
+    "source": "https://github.com/jakesgordon/javascript-tower-platformer",
+    "credit": "Jake Gordon",
+    "creatorBio": "Jake Gordon built Tower Platformer as a spiritual successor to the 1987 C64 game Nebulus, working out how the same rotating-tower illusion could be recreated with 2D sprites instead of Nebulus's original pseudo-3D rendering.",
+    "description": "Tower Platformer is a tribute to Nebulus (released in North America as Tower Toppler), a 1987 game for the Commodore 64 built around a genre-bending trick: you're climbing a cylindrical tower that appears to rotate beneath you as you circle around it, using nothing but clever 2D sprite scaling to fake a sense of 3D depth years before real 3D graphics were feasible on home hardware. This version rebuilds that same climbing loop with hand-drawn pastel monster and player sprites in place of Nebulus's original look, keeping the core idea intact: ladders and platforms wrap around a tower you ascend by climbing and jumping past patrolling slimes, snails, and flying enemies, collecting coins as you go.",
+    "howToPlay": "Left/right arrows move, up/down arrows climb ladders, spacebar jumps. Climb the tower collecting coins while avoiding or outmaneuvering the monsters patrolling each level.",
+    "tips": "Watch a patrolling monster's path for a full cycle before committing to pass it, since most of them move in a fixed back-and-forth pattern that's entirely predictable once you've seen one full loop. Ladders are safe zones from ground-based monsters but not from flying ones, so don't assume a ladder is automatically a place to pause and plan your next move. Prioritize vertical progress over collecting every coin on a level, since coins left behind cost you nothing but a missed jump against a monster can cost you the run."
+  },
+  {
+    "id": "tower-defense",
+    "title": "Tower Defense",
+    "added": "2026-08-15",
+    "type": "html5",
+    "path": "games/files/tower-defense/index.html",
+    "thumb": "games/thumbs/tower-defense.png",
+    "genre": "Tower Defense",
+    "tags": [
+      "Tower Defense",
+      "Strategy",
+      "Single Player"
+    ],
+    "license": "MIT",
+    "source": "https://github.com/rsaihe/towerdefense",
+    "credit": "Amelia Clarke",
+    "creatorBio": "Amelia Clarke built this tower defense game in p5.js, along with a companion map editor for designing custom maps to play it on.",
+    "description": "Tower defense as a genre grew out of custom maps built inside other games rather than starting as its own product: modders building \"Tower Defense\" scenarios inside Warcraft III's map editor in the early 2000s turned a simple idea, place immobile defenses along a path to stop waves of enemies from reaching the other end, into a genuinely deep strategy format built entirely on how you spend limited resources. The genre broke out of that modding scene and into the mainstream with browser games like Desktop Tower Defense in 2007, which is the direct lineage this version sits in: a grid-based map, a currency you earn by surviving waves, and seven distinct tower types (gun, laser, slow, sniper, rocket, bomb, and Tesla coil) that each trade off cost, range, and damage type differently enough that the real game is in the build order, not the shooting.",
+    "howToPlay": "Select a tower from the store on the left (or press its number key, 1 through 7) and click the grid to place it. Press Start to begin sending waves of enemies down the path; earn money for kills to afford more or better towers. Click a placed tower to sell or upgrade it. Survive as many waves as you can without letting enemies reach the end.",
+    "tips": "Place slow towers early in the path rather than late, since slowing enemies sooner gives every tower placed after that point more time to hit them before they reach the end. Cluster your strongest, longest-range towers (rocket, sniper) around a spot enemies pass multiple times if the path loops back on itself, rather than spreading towers evenly along the whole route. Don't overspend on your first few waves; early enemies are weak enough to handle with cheap gun towers, and saving money for a slow tower or two before the real difficulty ramp pays off more than an early splurge on expensive towers you could still afford later. Upgrading an existing well-placed tower is often more cost-efficient than buying a new one from scratch once your money is tight."
   }
 ]
