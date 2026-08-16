@@ -76,11 +76,14 @@
     <span class="skeleton skeleton-pill" style="height:2.1rem; width:5rem;"></span>
   </div>
   <div class="grid-controls">
-    <input type="search" id="gameSearch" class="search-input" placeholder="Search games…">
-    <select id="gameSort" class="sort-select">
-      <option value="newest">Newest first</option>
-      <option value="title">Title A–Z</option>
-    </select>
+    <input type="search" id="gameSearch" class="search-input" placeholder="Search games… (press /)">
+    <div style="display:flex; gap:0.6rem; align-items:center;">
+      <select id="gameSort" class="sort-select">
+        <option value="newest">Newest first</option>
+        <option value="title">Title A–Z</option>
+      </select>
+      <button type="button" id="randomGameBtn" class="btn" title="Play a random game">SURPRISE ME</button>
+    </div>
   </div>
 
   <div class="game-grid" id="gameGrid">

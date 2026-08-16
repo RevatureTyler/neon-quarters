@@ -47,7 +47,22 @@ function renderGrid() {
     : new Date(b.added || 0) - new Date(a.added || 0));
 
   if (!list.length) {
-    grid.innerHTML = '<p style="color:var(--text-dim); font-size:0.8rem;">No games match your search.</p>';
+    const hasFilters = activeGenre !== 'all' || q;
+    grid.innerHTML = `
+      <div class="empty-note" style="grid-column:1/-1;">
+        No games match${q ? ` "${q.replace(/</g, '&lt;')}"` : ''}${activeGenre !== 'all' ? ` in ${activeGenre}` : ''}.
+        ${hasFilters ? '<br><button type="button" class="btn" id="clearFiltersBtn" style="margin-top:0.75rem;">CLEAR FILTERS</button>' : ''}
+      </div>
+    `;
+    const clearBtn = document.getElementById('clearFiltersBtn');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        searchQuery = '';
+        const input = document.getElementById('gameSearch');
+        if (input) input.value = '';
+        setActiveGenre('all');
+      });
+    }
     return;
   }
 
@@ -97,6 +112,28 @@ function renderSearch() {
     searchQuery = e.target.value;
     renderGrid();
   });
+
+  // "/" focuses search, matching the common power-user pattern from sites
+  // like GitHub -- but not while the user is already typing somewhere else.
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== '/' || e.metaKey || e.ctrlKey || e.altKey) return;
+    const tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea' || e.target.isContentEditable) return;
+    e.preventDefault();
+    input.focus();
+  });
+}
+
+function goToRandomGame() {
+  if (!GAMES.length) return;
+  const pick = GAMES[Math.floor(Math.random() * GAMES.length)];
+  window.location.href = `game.html?id=${encodeURIComponent(pick.id)}`;
+}
+
+function renderRandomButton() {
+  const btn = document.getElementById('randomGameBtn');
+  if (!btn) return;
+  btn.addEventListener('click', goToRandomGame);
 }
 
 function renderSort() {
@@ -213,6 +250,7 @@ window.gamesReady.then(() => {
   renderGenreRow();
   renderSearch();
   renderSort();
+  renderRandomButton();
   renderGrid();
   renderFeatured();
   renderLeaderboard();
