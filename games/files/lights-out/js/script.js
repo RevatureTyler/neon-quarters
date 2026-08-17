@@ -23,9 +23,16 @@ var randomInit=1;
 var musicTemp=[];
 var completeGame=0;
 var hr = (new Date()).getHours();
-var musicList=["files/bensound-anewbeginning.mp3","files/bensound-happiness.mp3","files/bensound-tenderness.mp3","files/bensound-cute.mp3","files/bensound-buddy.mp3"];
-var musicRandom=Math.floor(Math.random()*musicList.length);
-var audio = new Audio(musicList[musicRandom]);
+// The 5 Bensound tracks these originally pointed at were never actually
+// bundled into games/files/lights-out/ (no files/ subfolder exists here),
+// so this was 404ing on every load. Bensound's tracks need attribution or a
+// paid license to use commercially -- not something to silently fetch and
+// add without that decision being made deliberately -- so this is emptied
+// out rather than pointed at real files. index.html only loads
+// js/script.min.js, not this file, but it's fixed here too for consistency.
+var musicList=[];
+var musicRandom=0;
+var audio = new Audio();
 var playStatus=false;
 var newRecordNotif="";
 var playerNameObject;

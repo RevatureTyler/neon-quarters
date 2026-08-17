@@ -148,13 +148,11 @@ ga('send', 'pageview');
 
 </script>
 <!-- End Google Analytics -->
-<script>
- if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js')
-      .then(function(reg){
-     }).catch(function(err) {
-    });
- }
-</script>
+<!-- Upstream's own service-worker registration removed: 'service-worker.js'
+     was never actually included when this game was copied into
+     games/files/lights-out/, so this 404s on every load. Same class of dead
+     PWA boilerplate as the minesweeper case -- our own site-level service
+     worker (sw.js) already covers this site and explicitly excludes
+     games/files/** on purpose. -->
 </body>
 </html>

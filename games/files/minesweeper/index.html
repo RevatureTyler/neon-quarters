@@ -304,9 +304,13 @@
     <a href="https://github.com/muan/emoji-minesweeper" class="link-to-github">[Code]</a>
     <div aria-live="assertive" class="feedback"></div>
 
-    <script>
-      if (navigator.serviceWorker) navigator.serviceWorker.register('/emoji-minesweeper/sw.js')
-    </script>
+    <!-- Upstream's own service-worker registration removed: it hardcoded
+         '/emoji-minesweeper/sw.js', an absolute path from the original
+         repo's own deploy root, which 404s once this game is embedded at
+         games/files/minesweeper/ under our site's root. Same class of dead
+         PWA boilerplate as the aux.js case noted in HANDOFF.md -- our own
+         site-level service worker (sw.js) already covers this site, and
+         explicitly excludes games/files/** on purpose. -->
 
     <!-- haiiii https://github.com/twitter/twemoji is awesome -->
     <script src="twemoji.js"></script>
