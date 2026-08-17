@@ -1,4 +1,5 @@
 let activeGenre = 'all';
+let activeTag = '';
 let searchQuery = '';
 let sortMode = 'newest';
 const GENRE_SHAPES = ['circle', 'diamond', 'square'];
@@ -34,23 +35,44 @@ function renderFavorites() {
   grid.innerHTML = games.map(g => renderGameCard(g, { favToggle: true, isFavorite: true })).join('');
 }
 
+function getPlayCounts() {
+  try { return JSON.parse(localStorage.getItem('nq-plays') || '{}'); }
+  catch (e) { return {}; }
+}
+
+function renderActiveTagBar() {
+  const bar = document.getElementById('activeTagBar');
+  if (!bar) return;
+  if (!activeTag) { bar.hidden = true; return; }
+  bar.hidden = false;
+  document.getElementById('activeTagLabel').textContent = activeTag;
+}
+
 function renderGrid() {
   const grid = document.getElementById('gameGrid');
   grid.innerHTML = '';
   const q = searchQuery.trim().toLowerCase();
   const list = GAMES
     .filter(g => activeGenre === 'all' || g.genre === activeGenre)
+    .filter(g => !activeTag || (g.tags || []).includes(activeTag))
     .filter(g => !q || g.title.toLowerCase().includes(q));
 
-  list.sort((a, b) => sortMode === 'title'
-    ? a.title.localeCompare(b.title)
-    : new Date(b.added || 0) - new Date(a.added || 0));
+  if (sortMode === 'popular') {
+    const plays = getPlayCounts();
+    list.sort((a, b) => (plays[b.id] || 0) - (plays[a.id] || 0));
+  } else {
+    list.sort((a, b) => sortMode === 'title'
+      ? a.title.localeCompare(b.title)
+      : new Date(b.added || 0) - new Date(a.added || 0));
+  }
+
+  renderActiveTagBar();
 
   if (!list.length) {
-    const hasFilters = activeGenre !== 'all' || q;
+    const hasFilters = activeGenre !== 'all' || q || activeTag;
     grid.innerHTML = `
       <div class="empty-note" style="grid-column:1/-1;">
-        No games match${q ? ` "${q.replace(/</g, '&lt;')}"` : ''}${activeGenre !== 'all' ? ` in ${activeGenre}` : ''}.
+        No games match${q ? ` "${q.replace(/</g, '&lt;')}"` : ''}${activeGenre !== 'all' ? ` in ${activeGenre}` : ''}${activeTag ? ` tagged "${activeTag.replace(/</g, '&lt;')}"` : ''}.
         ${hasFilters ? '<br><button type="button" class="btn" id="clearFiltersBtn" style="margin-top:0.75rem;">CLEAR FILTERS</button>' : ''}
       </div>
     `;
@@ -98,6 +120,7 @@ function renderGenreRow() {
     `;
   }).join('');
   row.innerHTML = allChip + genreChips;
+  row.querySelectorAll('.genre-chip').forEach(c => c.classList.toggle('active', c.dataset.genre === activeGenre));
   row.addEventListener('click', (e) => {
     const chip = e.target.closest('.genre-chip');
     if (!chip) return;
@@ -220,6 +243,37 @@ function initPreviewModal() {
   });
 }
 
+function renderRecent() {
+  const section = document.getElementById('recentSection');
+  const grid = document.getElementById('recentGrid');
+  if (!section || !grid) return;
+  let recent = [];
+  try { recent = JSON.parse(localStorage.getItem('nq-recent') || '[]'); } catch (e) {}
+  const games = recent.map(id => GAMES.find(g => g.id === id)).filter(Boolean).slice(0, 6);
+  if (!games.length) { section.hidden = true; return; }
+  section.hidden = false;
+  const favs = getFavorites();
+  grid.innerHTML = games.map(g => renderGameCard(g, { favToggle: true, isFavorite: favs.includes(g.id) })).join('');
+}
+
+function applyUrlFilters() {
+  const params = new URLSearchParams(window.location.search);
+  const tag = params.get('tag');
+  const genre = params.get('genre');
+  if (tag) activeTag = tag;
+  if (genre && GAMES.some(g => g.genre === genre)) activeGenre = genre;
+}
+
+function initClearTagButton() {
+  const btn = document.getElementById('clearTagBtn');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    activeTag = '';
+    history.replaceState(null, '', window.location.pathname);
+    renderGrid();
+  });
+}
+
 function renderLeaderboard() {
   const section = document.getElementById('leaderboard');
   const list = document.getElementById('leaderboardList');
@@ -246,7 +300,25 @@ function renderLeaderboard() {
   `).join('');
 }
 
+function renderHomeStructuredData() {
+  const el = document.getElementById('homeSchema');
+  if (!el) return;
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: GAMES.map((g, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `https://neonquarter.online/game.html?id=${encodeURIComponent(g.id)}`,
+      name: g.title,
+    })),
+  };
+  el.textContent = JSON.stringify(data);
+}
+
 window.gamesReady.then(() => {
+  applyUrlFilters();
+  renderHomeStructuredData();
   renderGenreRow();
   renderSearch();
   renderSort();
@@ -255,7 +327,9 @@ window.gamesReady.then(() => {
   renderFeatured();
   renderLeaderboard();
   renderFavorites();
+  renderRecent();
   initPreviewModal();
+  initClearTagButton();
 
   document.getElementById('favoritesGrid').addEventListener('click', (e) => {
     const favBtn = e.target.closest('.fav-toggle');
@@ -264,6 +338,16 @@ window.gamesReady.then(() => {
     toggleFavorite(favBtn.dataset.id);
     renderGrid();
     renderFavorites();
+  });
+
+  document.getElementById('recentGrid').addEventListener('click', (e) => {
+    const favBtn = e.target.closest('.fav-toggle');
+    if (!favBtn) return;
+    e.preventDefault();
+    toggleFavorite(favBtn.dataset.id);
+    renderGrid();
+    renderFavorites();
+    renderRecent();
   });
 });
 

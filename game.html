@@ -25,6 +25,10 @@
 <script src="js/theme-init.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2636244885787785" crossorigin="anonymous"></script>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="favicon.svg">
+<meta name="theme-color" content="#0b0e14">
+<script type="application/ld+json" id="gameSchema"></script>
 <link rel="stylesheet" href="css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -45,6 +49,8 @@
   <div class="game-header">
     <a href="index.html" class="back-link">&larr; ARCADE</a>
     <h1 id="gameTitle" class="game-title"><span class="skeleton skeleton-line" style="width:12rem; height:1.1rem; display:inline-block;"></span></h1>
+    <button type="button" id="fullscreenBtn" class="fav-btn" aria-label="Play fullscreen">⛶ Fullscreen</button>
+    <button type="button" id="embedBtn" class="fav-btn" aria-label="Get embed code">&lt;/&gt; Embed</button>
     <button type="button" id="favBtn" class="fav-btn" aria-label="Add to favorites" aria-pressed="false">♡ Favorite</button>
   </div>
 
@@ -113,6 +119,18 @@
     <p class="section-label" id="moreGamesLabel">MORE GAMES</p>
     <div class="game-grid" id="moreGrid"></div>
   </div>
+
+  <div class="modal-overlay" id="embedOverlay" hidden>
+    <div class="modal-card" id="embedCard" role="dialog" aria-modal="true">
+      <button type="button" class="modal-close" id="embedClose" aria-label="Close embed dialog">&times;</button>
+      <div style="padding:1.25rem;">
+        <p class="section-label" style="margin-bottom:0.6rem;">EMBED THIS GAME</p>
+        <p style="font-size:0.8rem; color:var(--text-dim); margin:0 0 0.75rem;">Paste this on your own site. Credits and links back to Neon Quarters.</p>
+        <textarea id="embedSnippet" readonly rows="4" class="comment-input" style="width:100%; font-size:0.7rem;"></textarea>
+        <button type="button" id="embedCopyBtn" class="btn" style="margin-top:0.75rem;">COPY CODE</button>
+      </div>
+    </div>
+  </div>
 </main>
 
 <footer>
@@ -130,5 +148,7 @@
 <script src="js/theme.js"></script>
 <script src="js/cookie-consent.js"></script>
 <script src="js/ads.js"></script>
+<script src="js/support.js"></script>
+<script src="js/pwa.js"></script>
 </body>
 </html>

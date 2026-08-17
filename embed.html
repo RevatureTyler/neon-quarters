@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Quarters — Embedded Game</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #0b0e14; overflow: hidden; }
+  #embedFrame { position: relative; width: 100%; height: 100%; }
+  #embedFrame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+  #embedCredit {
+    position: absolute; right: 6px; bottom: 6px; z-index: 5;
+    font: 500 11px/1 'JetBrains Mono', monospace;
+    color: #b8bfd1; background: rgba(11,14,20,0.72);
+    padding: 4px 8px; border-radius: 4px; text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  #embedCredit:hover { color: #5ee6d9; border-color: #5ee6d9; }
+  #embedError { color: #b8bfd1; font: 14px/1.5 'JetBrains Mono', monospace; padding: 2rem; }
+</style>
+</head>
+<body>
+<div id="embedFrame"></div>
+<script src="js/games-data.js"></script>
+<script src="js/embed.js"></script>
+</body>
+</html>

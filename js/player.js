@@ -37,7 +37,9 @@ function loadGame() {
     `Credit: ${game.credit} · <a href="${game.source}" target="_blank" rel="noopener">Source</a>`;
 
   const tagRow = document.getElementById('tagRow');
-  tagRow.innerHTML = (game.tags || [game.genre]).map(t => `<span class="tag-pill">${t}</span>`).join('');
+  tagRow.innerHTML = (game.tags || [game.genre])
+    .map(t => `<a href="index.html?tag=${encodeURIComponent(t)}" class="tag-pill">${t}</a>`)
+    .join('');
 
   const descEl = document.getElementById('gameDescription');
   if (game.description) {
@@ -71,10 +73,14 @@ function loadGame() {
   document.getElementById('twitterDescription').content = ogDesc;
   document.getElementById('twitterImage').content = game.thumb;
 
+  renderStructuredData(game);
   renderMoreGames(game);
   renderRating(game.id);
   renderShareRow(game);
+  initFullscreenButton();
+  initEmbedButton(game);
   trackPlay(game.id);
+  trackRecentlyPlayed(game.id);
 
   const bioEl = document.getElementById('creatorBio');
   if (game.creatorBio) {
@@ -473,6 +479,79 @@ function trackPlay(gameId) {
   plays[gameId] = (plays[gameId] || 0) + 1;
   localStorage.setItem('nq-plays', JSON.stringify(plays));
   if (window.nqCloudRecordPlay) nqCloudRecordPlay(gameId);
+}
+
+// Last 12 distinct games played, most recent first. Separate from nq-plays
+// (a per-game counter) -- this is an ordered, deduped recency list, used to
+// power the homepage "Continue Playing" rail.
+function trackRecentlyPlayed(gameId) {
+  let recent = [];
+  try { recent = JSON.parse(localStorage.getItem('nq-recent') || '[]'); } catch (e) {}
+  recent = recent.filter((id) => id !== gameId);
+  recent.unshift(gameId);
+  localStorage.setItem('nq-recent', JSON.stringify(recent.slice(0, 12)));
+}
+
+// Google's Game/VideoGame structured data guidance for rich results. No
+// aggregateRating here on purpose -- ratings are per-browser localStorage,
+// not real aggregate review data, and fabricating that schema is exactly
+// the kind of thing that gets a site penalized for review-schema spam.
+function renderStructuredData(game) {
+  const el = document.getElementById('gameSchema');
+  if (!el) return;
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'VideoGame',
+    name: game.title,
+    description: game.description || `Play ${game.title} free, instantly, in your browser.`,
+    image: `https://neonquarter.online/${game.thumb}`,
+    url: `https://neonquarter.online/game.html?id=${encodeURIComponent(game.id)}`,
+    genre: game.genre,
+    applicationCategory: 'Game',
+    operatingSystem: 'Any',
+    datePublished: game.added,
+    author: game.credit ? { '@type': 'Person', name: game.credit } : undefined,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  };
+  el.textContent = JSON.stringify(data);
+}
+
+function initFullscreenButton() {
+  const btn = document.getElementById('fullscreenBtn');
+  const shell = document.querySelector('.player-shell');
+  if (!btn || !shell) return;
+  btn.addEventListener('click', () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else if (shell.requestFullscreen) {
+      shell.requestFullscreen();
+    }
+  });
+  document.addEventListener('fullscreenchange', () => {
+    btn.textContent = document.fullscreenElement ? '⛶ Exit Fullscreen' : '⛶ Fullscreen';
+  });
+}
+
+function initEmbedButton(game) {
+  const btn = document.getElementById('embedBtn');
+  const overlay = document.getElementById('embedOverlay');
+  const snippet = document.getElementById('embedSnippet');
+  const copyBtn = document.getElementById('embedCopyBtn');
+  if (!btn || !overlay || !snippet) return;
+  const code = `<iframe src="https://neonquarter.online/embed.html?id=${encodeURIComponent(game.id)}" width="640" height="480" style="border:none;" allowfullscreen loading="lazy" title="${game.title} - Neon Quarters"></iframe>`;
+  btn.addEventListener('click', () => {
+    snippet.value = code;
+    overlay.hidden = false;
+    snippet.focus();
+    snippet.select();
+  });
+  document.getElementById('embedClose').addEventListener('click', () => { overlay.hidden = true; });
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.hidden = true; });
+  copyBtn.addEventListener('click', async () => {
+    await navigator.clipboard.writeText(code);
+    copyBtn.textContent = 'COPIED!';
+    setTimeout(() => { copyBtn.textContent = 'COPY CODE'; }, 1500);
+  });
 }
 
 function renderShareRow(game) {

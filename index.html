@@ -25,6 +25,10 @@
 <script src="js/theme-init.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2636244885787785" crossorigin="anonymous"></script>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="favicon.svg">
+<meta name="theme-color" content="#0b0e14">
+<script type="application/ld+json" id="homeSchema"></script>
 <link rel="stylesheet" href="css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -64,6 +68,11 @@
     <div class="game-grid" id="favoritesGrid"></div>
   </div>
 
+  <div class="leaderboard" id="recentSection" hidden>
+    <p class="section-label">CONTINUE PLAYING</p>
+    <div class="game-grid" id="recentGrid"></div>
+  </div>
+
   <div class="leaderboard" id="leaderboard" hidden>
     <p class="section-label">YOUR MOST PLAYED <a href="leaderboards.html" style="float:right; font-family:'JetBrains Mono', monospace; text-transform:none; letter-spacing:normal; font-size:0.7rem;">See all stats &rarr;</a></p>
     <ol class="leaderboard-list" id="leaderboardList"></ol>
@@ -80,10 +89,16 @@
     <div style="display:flex; gap:0.6rem; align-items:center;">
       <select id="gameSort" class="sort-select">
         <option value="newest">Newest first</option>
+        <option value="popular">Most played</option>
         <option value="title">Title A–Z</option>
       </select>
       <button type="button" id="randomGameBtn" class="btn" title="Play a random game">SURPRISE ME</button>
     </div>
+  </div>
+
+  <div id="activeTagBar" hidden style="margin:-0.5rem 0 1rem; font-family:'JetBrains Mono', monospace; font-size:0.75rem; color:var(--text-dim);">
+    Filtered by tag: <strong id="activeTagLabel"></strong>
+    <button type="button" id="clearTagBtn" class="back-link" style="margin-left:0.5rem;">Clear</button>
   </div>
 
   <div class="game-grid" id="gameGrid">
@@ -130,5 +145,7 @@
 <script src="js/auth.js"></script>
 <script src="js/cloud-sync.js"></script>
 <script src="js/account-widget.js"></script>
+<script src="js/support.js"></script>
+<script src="js/pwa.js"></script>
 </body>
 </html>

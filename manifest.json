@@ -1,0 +1,19 @@
+{
+  "name": "Neon Quarters — Free Browser Games",
+  "short_name": "Neon Quarters",
+  "description": "Play free, legally licensed browser games instantly. No download, no sign up.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b0e14",
+  "theme_color": "#0b0e14",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
