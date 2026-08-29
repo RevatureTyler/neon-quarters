@@ -50,6 +50,79 @@
 <script src="js/theme.js"></script>
 <script>
 const POSTS = {
+  'ruffle-vs-flashpoint': {
+    title: 'Ruffle vs. Flashpoint: the two ways Flash games survive without Flash Player',
+    date: 'AUG 29, 2026',
+    excerpt: 'Adobe Flash Player has been gone since January 2021. Here\'s how two very different preservation projects kept the games it ran playable anyway, and why neither one is the actual bottleneck for this site.',
+    html: `
+      <p>Adobe Flash Player stopped running anywhere the moment every major browser pulled its plugin
+      support in January 2021, three years after Adobe first announced Flash's end of life in 2017. That
+      killed the plugin, not the roughly two decades of games built on top of it, and since then two
+      genuinely different projects have grown up to keep that library playable, solving the same problem
+      in close to opposite ways.</p>
+      <p><a href="https://ruffle.rs" target="_blank" rel="noopener">Ruffle</a>, the project the loader in
+      our own player is built around, rebuilds Flash Player from scratch instead of preserving it. Mike
+      Welsh, previously of Newgrounds, started it in 2016 under the name "Fluster"; it's since grown into
+      an MIT/Apache-licensed emulator written in Rust and compiled to WebAssembly, re-implementing the
+      ActionScript language and Flash runtime as its own independent piece of sandboxed software rather
+      than running Adobe's actual player, which no longer exists in any form a modern browser will load.
+      Rebuilding instead of preserving means coverage isn't total, and doesn't need to be: Ruffle's own <a
+      href="https://ruffle.rs/compatibility" target="_blank" rel="noopener">compatibility page</a> puts
+      AVM1 content (ActionScript 1/2, most pre-2013 Flash) at 99% language and 82% API coverage, with AVM2
+      (ActionScript 3, the newer standard most later Flash used) close behind. That's been enough for
+      Newgrounds, Internet Archive, Armor Games, Coolmath Games, and Homestar Runner to run their legacy
+      Flash catalogs through it today, live in a normal tab, no plugin involved.</p>
+      <p><a href="https://flashpointarchive.org" target="_blank" rel="noopener">Flashpoint Archive</a>
+      takes the opposite approach. Started in late 2017 by Australian developer Ben "BlueMaxima" Latimore,
+      it preserves the actual original plugins instead of reimplementing them: real Flash Player, plus
+      Shockwave, Silverlight, Java applets, Unity Web Player, and well over a hundred other dead browser
+      technologies, run inside a sandboxed local environment with a proxy server standing in for the
+      internet requests those old games used to make and can no longer complete. It's less accessible, a
+      downloaded application rather than a click-to-play tab, but more complete in a way emulation can't
+      fully match: whatever the original plugin actually did, Flashpoint replays exactly, quirks and bugs
+      included. The archive currently holds over 200,000 preserved applications at 1.68 terabytes, with
+      its latest release out in November 2025.</p>
+      <p>Neither approach is the actual bottleneck for a site like this one, though, and it has nothing to
+      do with technology. As we <a href="blog-post.html?slug=why-no-flash-yet">explained recently</a>, the
+      barrier isn't whether Ruffle can run a Flash game well enough, it plainly can, it's finding one with
+      a real, checkable open license behind it, the same bar every HTML5 game in this vault already had to
+      clear. Most of what both of these projects preserve was built for ad-funded portals or studios that
+      never released the rights, which is exactly why it needed a preservation project instead of just
+      staying live on its original site. The day a genuinely open-licensed exception turns up, the loader
+      is already built and waiting. Know of one? <a href="submit.html">The submission form</a> is open.</p>
+    `
+  },
+  'why-no-flash-yet': {
+    title: 'Why there\'s no Flash in the vault yet',
+    date: 'AUG 29, 2026',
+    excerpt: 'The homepage has promised Flash-era classics revived with Ruffle since launch. Here\'s the honest reason none have shipped, and what it would actually take.',
+    html: `
+      <p>Sharp-eyed visitors have pointed out something true: this site has said "Flash era classics
+      revived with Ruffle" since the day it launched, and the vault has never once contained an actual
+      Flash game. All 34 titles here are HTML5. That's not a bait and switch we're comfortable leaving
+      unexplained, so here's the real reason.</p>
+      <p>It comes down to the same rule that governs every other game on this site: we only ship what we
+      can point at a genuine, checkable open license for, on the actual source file, not a repo's root
+      LICENSE or a listing site's badge. That bar has been easy to clear for HTML5. The last fifteen years
+      produced a large, healthy population of small indie browser games released under MIT or CC0 by
+      developers who wanted their code read and reused, and that's who most of this catalog comes from.
+      Flash never really had that culture. The SWFs most people remember as "Flash classics" were built
+      for ad-supported portals or commercial studios, and the ones that got dumped onto ROM-style archive
+      sites after Flash Player's death are sitting there because they were popular, not because anyone
+      ever released the rights. A Flash game with a real, verifiable open license from its actual author
+      is a genuinely rare find, rarer than the equivalent HTML5 search.</p>
+      <p>Ruffle itself is not the blocker. Its own <a href="https://ruffle.rs/compatibility"
+      target="_blank" rel="noopener">compatibility page</a> currently reports 99% language and 82% API
+      coverage for AVM1 content (pre-2013, most of the era people are nostalgic for) and 90% language /
+      82% API coverage for AVM2, and calls that good enough for most games to be playable. If we had a
+      legitimately open-licensed SWF sitting on the shelf, embedding it would be the easy part.</p>
+      <p>So the plan hasn't changed, just the timeline: the Ruffle loader has been built into the player
+      since launch and is sitting there unused, <a href="submit.html">the submission form</a> already
+      lists SWF as an option, and the day a Flash game turns up with the same kind of paper trail every
+      HTML5 game here already has, it goes in the vault like everything else. Until then, the front page
+      copy should say what's actually true, so it now does.</p>
+    `
+  },
   'six-new-games-and-a-few-that-didnt-make-it': {
     title: 'Six new games join the vault, a few with a mind of their own',
     date: 'AUG 13, 2026',
